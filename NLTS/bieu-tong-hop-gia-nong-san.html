@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biểu Tổng hợp số liệu giá Nông sản, vật tư nông nghiệp</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="top-bar-main">
+            <div class="top-bar-left">
+                SỞ NÔNG NGHIỆP & PTNT TỈNH QUẢNG TRỊ<br>
+                HỆ THỐNG CƠ SỞ DỮ LIỆU NÔNG NGHIỆP
+            </div>
+            <div class="top-bar-center">
+                HỆ THỐNG CSDL QUẢN LÝ CHẤT LƯỢNG NÔNG LÂM THỦY SẢN
+            </div>
+            <div class="top-bar-right">
+                <div class="user-menu">
+                    <span>QUẢN TRỊ HỆ THỐNG</span>
+                    <i class="fas fa-user-circle"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="wrapper">
+        <!-- Sidebar -->
+        <nav class="sidebar">
+            <ul class="nav flex-column">
+                <!-- Dashboard -->
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">
+                        <i class="fas fa-tachometer-alt"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <!-- Quản lý doanh nghiệp -->
+                <li class="nav-item">
+                    <a class="nav-link" data-bs-toggle="collapse" href="#qlDoanhNghiepSubmenu" role="button" aria-expanded="false" aria-controls="qlDoanhNghiepSubmenu">
+                        <i class="fas fa-briefcase"></i>
+                        <span>Quản lý doanh nghiệp</span>
+                        <i class="fas fa-caret-down float-end"></i>
+                    </a>
+                    <div class="collapse" id="qlDoanhNghiepSubmenu">
+                        <ul class="nav flex-column ms-3">
+                            <li class="nav-item"><a class="nav-link" href="co-so-che-bien.html">DL các doanh nghiệp sản xuất kinh doanh</a></li>
+                            <li class="nav-item"><a class="nav-link" href="pham-vi-kinh-doanh.html">DL địa bàn, phạm vi sản xuất kinh doanh</a></li>
+                            <li class="nav-item"><a class="nav-link" href="hoat-dong-kinh-doanh.html">DL Tình hình hoạt động kinh doanh</a></li>
+                            <li class="nav-item"><a class="nav-link" href="bao-cao-thong-ke-doanh-nghiep.html">Báo cáo thống kê</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <!-- Quản lý các cơ sở quản lý chất lượng tiên tiến -->
+                <li class="nav-item">
+                    <a class="nav-link" data-bs-toggle="collapse" href="#qlCoSoQuanLySubmenu" role="button" aria-expanded="false" aria-controls="qlCoSoQuanLySubmenu">
+                        <i class="fas fa-warehouse"></i>
+                        <span>Quản lý ATTP, vi phạm chất lượng và ATTP</span>
+                        <i class="fas fa-caret-down float-end"></i>
+                    </a>
+                    <div class="collapse" id="qlCoSoQuanLySubmenu">
+                        <ul class="nav flex-column ms-3">
+                            <li class="nav-item"><a class="nav-link" href="co-so-du-dieu-kien.html">DL các cơ sở đạt chứng nhận quản lý chất lượng, hợp chuẩn hợp quy.</a></li>
+                            <li class="nav-item"><a class="nav-link" href="dieu-tra-kiem-ke.html">DL về các đợt điều tra, kiểm kê đánh giá</a></li>
+                            <li class="nav-item"><a class="nav-link" href="co-so-vi-pham.html">DL về vi phạm quản lý chất lượng</a></li>
+                            <li class="nav-item"><a class="nav-link" href="chung-nhan-het-han.html">DL về các cơ sở, chứng nhận hết hạn</a></li>
+                            <li class="nav-item"><a class="nav-link" href="bao-cao-thong-ke-tong-hop.html">Báo cáo thống kê</a></li>
+                            <li class="nav-item"><a class="nav-link" href="danh-muc-loai-san-pham.html">Danh mục loại sản phẩm</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <!-- CSDL về các văn bản quy phạm pháp luật liên quan -->
+                <li class="nav-item">
+                    <a class="nav-link" data-bs-toggle="collapse" href="#vbqpplSubmenu" role="button" aria-expanded="false" aria-controls="vbqpplSubmenu">
+                        <i class="fas fa-book"></i>
+                        <span>CSDL về các văn bản quy phạm pháp luật liên quan</span>
+                        <i class="fas fa-caret-down float-end"></i>
+                    </a>
+                    <div class="collapse" id="vbqpplSubmenu">
+                        <ul class="nav flex-column ms-3">
+                            <li class="nav-item"><a class="nav-link" href="danh-muc-vbqppl.html">Danh mục VBQPPL</a></li>
+                            <li class="nav-item"><a class="nav-link" href="danh-muc-linh-vuc.html">Danh mục lĩnh vực</a></li>
+                            <li class="nav-item"><a class="nav-link" href="danh-muc-thu-muc-vbqppl.html">Thư mục văn bản</a></li>
+                            <li class="nav-item"><a class="nav-link" href="tim-kiem-vbqppl-noi-dung.html">Tìm kiếm VBQPPL theo nội dung</a></li>
+                            <li class="nav-item"><a class="nav-link" href="tim-kiem-vbqppl-cqbh.html">Tìm kiếm VBQPPL theo CQBH</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <!-- Quảng bá, xúc tiến thương mại -->
+                <li class="nav-item">
+                    <a class="nav-link" data-bs-toggle="collapse" href="#quangBaSubmenu" role="button" aria-expanded="false" aria-controls="quangBaSubmenu">
+                        <i class="fas fa-bullhorn"></i>
+                        <span>Quảng bá, xúc tiến thương mại</span>
+                        <i class="fas fa-caret-down float-end"></i>
+                    </a>
+                    <div class="collapse" id="quangBaSubmenu">
+                        <ul class="nav flex-column ms-3">
+                            <li class="nav-item"><a class="nav-link" href="kenh-quang-ba.html">DL các kênh quảng bá xúc tiến thương mại</a></li>
+                            <li class="nav-item"><a class="nav-link" href="phat-trien-thi-truong.html">DL Tình hình phát triển thị trường</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <!-- Quản lý thông tin cung cấp cho người dân -->
+                <li class="nav-item">
+                    <a class="nav-link" data-bs-toggle="collapse" href="#qlThongTinCungCapSubmenu" role="button" aria-expanded="false" aria-controls="qlThongTinCungCapSubmenu">
+                        <i class="fas fa-info-circle"></i>
+                        <span>Quản lý thông tin cung cấp cho người dân</span>
+                        <i class="fas fa-caret-down float-end"></i>
+                    </a>
+                    <div class="collapse" id="qlThongTinCungCapSubmenu">
+                        <ul class="nav flex-column ms-3">
+                            <li class="nav-item"><a class="nav-link" href="co-so-vi-pham-chat-luong.html">Dữ liệu các cơ sở vi phạm chất lượng và ATTP</a></li>
+                            <li class="nav-item"><a class="nav-link" href="co-so-hop-chuan-hop-quy.html">Dữ liệu các cơ sở đã được chứng nhận về ATTP còn hiệu lực</a></li>
+                            <li class="nav-item"><a class="nav-link" href="chuoi-cung-ung.html">Dữ liệu các chuỗi cung ứng thực phẩm an toàn</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <!-- Giá cả thị trường vật tư nông nghiệp -->
+                <li class="nav-item">
+                    <a class="nav-link" data-bs-toggle="collapse" href="#giaCaSubmenu" role="button" aria-expanded="false" aria-controls="giaCaSubmenu">
+                        <i class="fas fa-coins"></i>
+                        <span>Giá cả thị trường vật tư nông nghiệp</span>
+                        <i class="fas fa-caret-down float-end"></i>
+                    </a>
+                    <div class="collapse show" id="giaCaSubmenu">
+                        <ul class="nav flex-column ms-3">
+                            <li class="nav-item"><a class="nav-link" href="gia-ca-san-pham-nong-san.html">Giá cả sản phẩm nông sản</a></li>
+                            <li class="nav-item"><a class="nav-link" href="danh-muc-loai-vat-tu-nong-nghiep.html">Danh mục loại vật tư nông nghiệp</a></li>
+                            <li class="nav-item"><a class="nav-link" href="danh-muc-vat-tu-nong-nghiep.html">Danh mục vật tư nông nghiệp</a></li>
+                            <li class="nav-item"><a class="nav-link" href="gia-ca-vat-tu-nong-nghiep.html">Giá cả vật tư nông nghiệp</a></li>
+                            <li class="nav-item"><a class="nav-link active" href="bieu-tong-hop-gia-nong-san.html">Biểu Tổng hợp số liệu giá Nông sản, vật tư nông nghiệp</a></li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Breadcrumb -->
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html">Trang chủ</a></li>
+                    <li class="breadcrumb-item"><a href="#">Giá cả thị trường vật tư nông nghiệp</a></li>
+                    <li class="breadcrumb-item active">Biểu Tổng hợp số liệu giá Nông sản, vật tư nông nghiệp</li>
+                </ol>
+            </nav>
+            <!-- Content -->
+            <div class="card">
+                <div class="card-header">
+                </div>
+                <div class="card-body">
+                    <form class="row g-2">
+                        <div class="col-md-2">
+                            <label class="form-label small">Từ ngày</label>
+                            <input type="date" class="form-control form-control-sm" id="tuNgay">
+                        </div>
+                        <div class="col-md-2">
+                            <label class="form-label small">Đến ngày</label>
+                            <input type="date" class="form-control form-control-sm" id="denNgay">
+                        </div>
+                        <div class="col-md-2">
+                            <label class="form-label small">Loại</label>
+                            <select class="form-select form-select-sm" id="loai">
+                                <option value="">Chọn loại</option>
+                                <option value="nong-san">Nông sản</option>
+                                <option value="vat-tu">Vật tư nông nghiệp</option>
+                            </select>
+                        </div>
+                        <div class="col-md-2">
+                            <label class="form-label small">Tên sản phẩm</label>
+                            <select class="form-select form-select-sm" id="tenSanPham">
+                                <option value="">Chọn sản phẩm</option>
+                                <option value="lua">Lúa</option>
+                                <option value="ngo">Ngô</option>
+                                <option value="phan-bon">Phân bón</option>
+                                <option value="thuoc-bao-ve-thuc-vat">Thuốc bảo vệ thực vật</option>
+                            </select>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="card mt-3">
+                <div class="card-header d-flex justify-content-end align-items-center">
+                    <button class="btn btn-success me-2" id="btnXuatExcel"><i class="fas fa-file-excel"></i> Xuất Excel</button>
+                    <button class="btn btn-primary me-2" id="btnThongKe"><i class="fas fa-chart-bar"></i> Thống kê</button>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-hover align-middle">
+                            <thead class="table-light">
+                                <tr>
+                                    <th>STT</th>
+                                    <th>Ngày ghi nhận</th>
+                                    <th>Loại</th>
+                                    <th>Tên sản phẩm</th>
+                                    <th>Nhà cung cấp</th>
+                                    <th>Địa điểm</th>
+                                    <th>Đơn vị tính</th>
+                                    <th>Giá mua vào (VNĐ)</th>
+                                    <th>Giá bán ra (VNĐ)</th>
+                                    <th>Biên động giá (%)</th>
+                                    <th>Tác vụ</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>01/01/2024</td>
+                                    <td>Nông sản</td>
+                                    <td>Lúa</td>
+                                    <td>Công ty TNHH ABC</td>
+                                    <td>Quảng Trị/Đông Hà/Phường 1</td>
+                                    <td>kg</td>
+                                    <td>8,000</td>
+                                    <td>9,000</td>
+                                    <td>12.5</td>
+                                    <td>
+                                        <button class="btn btn-sm btn-warning"><i class="fas fa-edit"></i> Sửa</button>
+                                        <button class="btn btn-sm btn-danger"><i class="fas fa-trash"></i> Xóa</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>01/01/2024</td>
+                                    <td>Vật tư nông nghiệp</td>
+                                    <td>Phân bón NPK</td>
+                                    <td>Công ty TNHH XYZ</td>
+                                    <td>Quảng Trị/Triệu Phong/Xã Triệu Thành</td>
+                                    <td>kg</td>
+                                    <td>12,000</td>
+                                    <td>13,500</td>
+                                    <td>12.5</td>
+                                    <td>
+                                        <button class="btn btn-sm btn-warning"><i class="fas fa-edit"></i> Sửa</button>
+                                        <button class="btn btn-sm btn-danger"><i class="fas fa-trash"></i> Xóa</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>02/01/2024</td>
+                                    <td>Nông sản</td>
+                                    <td>Ngô</td>
+                                    <td>Công ty TNHH Minh Phát</td>
+                                    <td>Quảng Trị/Vĩnh Linh/Xã Vĩnh Thủy</td>
+                                    <td>kg</td>
+                                    <td>7,000</td>
+                                    <td>8,000</td>
+                                    <td>14.3</td>
+                                    <td>
+                                        <button class="btn btn-sm btn-warning"><i class="fas fa-edit"></i> Sửa</button>
+                                        <button class="btn btn-sm btn-danger"><i class="fas fa-trash"></i> Xóa</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                    <td>02/01/2024</td>
+                                    <td>Vật tư nông nghiệp</td>
+                                    <td>Thuốc bảo vệ thực vật</td>
+                                    <td>Công ty TNHH Hòa Phát</td>
+                                    <td>Quảng Trị/Gio Linh/Xã Gio Mỹ</td>
+                                    <td>lít</td>
+                                    <td>150,000</td>
+                                    <td>165,000</td>
+                                    <td>10.0</td>
+                                    <td>
+                                        <button class="btn btn-sm btn-warning"><i class="fas fa-edit"></i> Sửa</button>
+                                        <button class="btn btn-sm btn-danger"><i class="fas fa-trash"></i> Xóa</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>5</td>
+                                    <td>03/01/2024</td>
+                                    <td>Nông sản</td>
+                                    <td>Khoai lang</td>
+                                    <td>Công ty TNHH Thành Công</td>
+                                    <td>Quảng Trị/Cam Lộ/Xã Cam Thủy</td>
+                                    <td>kg</td>
+                                    <td>5,000</td>
+                                    <td>6,500</td>
+                                    <td>30.0</td>
+                                    <td>
+                                        <button class="btn btn-sm btn-warning"><i class="fas fa-edit"></i> Sửa</button>
+                                        <button class="btn btn-sm btn-danger"><i class="fas fa-trash"></i> Xóa</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>6</td>
+                                    <td>03/01/2024</td>
+                                    <td>Vật tư nông nghiệp</td>
+                                    <td>Phân bón hữu cơ</td>
+                                    <td>Công ty TNHH Phúc Thịnh</td>
+                                    <td>Quảng Trị/Hải Lăng/Xã Hải Thọ</td>
+                                    <td>kg</td>
+                                    <td>25,000</td>
+                                    <td>28,000</td>
+                                    <td>12.0</td>
+                                    <td>
+                                        <button class="btn btn-sm btn-warning"><i class="fas fa-edit"></i> Sửa</button>
+                                        <button class="btn btn-sm btn-danger"><i class="fas fa-trash"></i> Xóa</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>7</td>
+                                    <td>04/01/2024</td>
+                                    <td>Nông sản</td>
+                                    <td>Đậu xanh</td>
+                                    <td>Công ty TNHH An Phú</td>
+                                    <td>Quảng Trị/Đakrông/Xã A Vao</td>
+                                    <td>kg</td>
+                                    <td>35,000</td>
+                                    <td>40,000</td>
+                                    <td>14.3</td>
+                                    <td>
+                                        <button class="btn btn-sm btn-warning"><i class="fas fa-edit"></i> Sửa</button>
+                                        <button class="btn btn-sm btn-danger"><i class="fas fa-trash"></i> Xóa</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>8</td>
+                                    <td>04/01/2024</td>
+                                    <td>Vật tư nông nghiệp</td>
+                                    <td>Giống lúa</td>
+                                    <td>Công ty TNHH Hưng Thịnh</td>
+                                    <td>Quảng Trị/Hướng Hóa/Xã Hướng Lộc</td>
+                                    <td>kg</td>
+                                    <td>45,000</td>
+                                    <td>50,000</td>
+                                    <td>11.1</td>
+                                    <td>
+                                        <button class="btn btn-sm btn-warning"><i class="fas fa-edit"></i> Sửa</button>
+                                        <button class="btn btn-sm btn-danger"><i class="fas fa-trash"></i> Xóa</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>9</td>
+                                    <td>05/01/2024</td>
+                                    <td>Nông sản</td>
+                                    <td>Lạc</td>
+                                    <td>Công ty TNHH Minh Đức</td>
+                                    <td>Quảng Trị/Vĩnh Linh/Xã Vĩnh Thủy</td>
+                                    <td>kg</td>
+                                    <td>25,000</td>
+                                    <td>28,000</td>
+                                    <td>12.0</td>
+                                    <td>
+                                        <button class="btn btn-sm btn-warning"><i class="fas fa-edit"></i> Sửa</button>
+                                        <button class="btn btn-sm btn-danger"><i class="fas fa-trash"></i> Xóa</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>10</td>
+                                    <td>05/01/2024</td>
+                                    <td>Vật tư nông nghiệp</td>
+                                    <td>Thuốc trừ sâu</td>
+                                    <td>Công ty TNHH Phát Đạt</td>
+                                    <td>Quảng Trị/Đông Hà/Phường 2</td>
+                                    <td>lít</td>
+                                    <td>180,000</td>
+                                    <td>200,000</td>
+                                    <td>11.1</td>
+                                    <td>
+                                        <button class="btn btn-sm btn-warning"><i class="fas fa-edit"></i> Sửa</button>
+                                        <button class="btn btn-sm btn-danger"><i class="fas fa-trash"></i> Xóa</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Xử lý sự kiện khi thay đổi loại
+            $('#loai').change(function() {
+                var loai = $(this).val();
+                var $tenSanPham = $('#tenSanPham');
+                $tenSanPham.empty();
+                $tenSanPham.append('<option value="">Chọn sản phẩm</option>');
+                
+                if (loai === 'nong-san') {
+                    $tenSanPham.append('<option value="lua">Lúa</option>');
+                    $tenSanPham.append('<option value="ngo">Ngô</option>');
+                    $tenSanPham.append('<option value="khoai-lang">Khoai lang</option>');
+                    $tenSanPham.append('<option value="lac">Lạc</option>');
+                    $tenSanPham.append('<option value="dau-xanh">Đậu xanh</option>');
+                } else if (loai === 'vat-tu') {
+                    $tenSanPham.append('<option value="phan-bon-npk">Phân bón NPK</option>');
+                    $tenSanPham.append('<option value="phan-bon-huu-co">Phân bón hữu cơ</option>');
+                    $tenSanPham.append('<option value="thuoc-bao-ve-thuc-vat">Thuốc bảo vệ thực vật</option>');
+                    $tenSanPham.append('<option value="thuoc-tru-sau">Thuốc trừ sâu</option>');
+                    $tenSanPham.append('<option value="giong-lua">Giống lúa</option>');
+                }
+            });
+        });
+    </script>
+</body>
+</html> 

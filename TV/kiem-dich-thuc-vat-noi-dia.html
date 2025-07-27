@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kiểm dịch thực vật nội địa - TTBVTV</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+    <style>
+        .sub-menu {
+            padding-left: 2rem;
+            margin-top: 0.5rem;
+        }
+        .sub-menu .nav-link {
+            padding: 0.5rem 1rem;
+            font-size: 0.9rem;
+        }
+        .sub-menu .nav-link i {
+            margin-right: 0.5rem;
+            font-size: 0.8rem;
+        }
+        .sub-menu .nav-link.active {
+            background-color: #e9ecef;
+            color: #0d6efd;
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="top-bar-main">
+            <div class="top-bar-left">
+                SỞ NÔNG NGHIỆP & PTNT TỈNH QUẢNG TRỊ<br>
+                HỆ THỐNG CƠ SỞ DỮ LIỆU NÔNG NGHIỆP
+            </div>
+            <div class="top-bar-center">
+                HỆ THỐNG CSDL LĨNH VỰC TRỒNG TRỌT & BẢO VỆ THỰC VẬT
+            </div>
+            <div class="top-bar-right">
+                <div class="user-menu">
+                    <span>QUẢN TRỊ HỆ THỐNG</span>
+                    <i class="fas fa-user-circle"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="wrapper">
+        <!-- Sidebar -->
+        <nav class="sidebar">
+            <ul class="nav flex-column">
+                <!-- Dashboard -->
+                <li class="nav-item">
+                    <a class="nav-link" href="dashboard.html">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <!-- Quản lý phân bón -->
+                <li class="nav-item">
+                    <a class="nav-link" data-bs-toggle="collapse" href="#menuPhanBon" role="button" aria-expanded="false" aria-controls="menuPhanBon">
+                        <i class="fas fa-box"></i>
+                        <span>Quản lý phân bón</span>
+                        <i class="fas fa-caret-down float-end"></i>
+                    </a>
+                    <ul class="collapse nav flex-column ms-3" id="menuPhanBon">
+                        <li class="nav-item"><a class="nav-link" href="co-so-buon-ban.html">Quản lý cơ sở kinh doanh phân bón</a></li>
+                        <li class="nav-item"><a class="nav-link" href="co-so-san-xuat.html">Quản lý cơ sở sản xuất phân bón</a></li>
+                        <li class="nav-item"><a class="nav-link" href="khao-nghiem.html">Quản lý thông tin dữ liệu khảo nghiệm, thử nghiệm phân bón</a></li>
+                        <li class="nav-item"><a class="nav-link" href="phan-bon.html">Dữ liệu phân bón lưu hành tại Việt Nam</a></li>
+                        <li class="nav-item"><a class="nav-link" href="du-lieu-xuat-nhap-khau-phan-bon.html">Dữ liệu xuất nhập khẩu phân bón</a></li>
+                        <li class="nav-item"><a class="nav-link" href="vi-pham.html">Dữ liệu vi phạm trong sản xuất kinh doanh phân bón</a></li>
+                        <li class="nav-item"><a class="nav-link" href="thong-ke-bao-cao-phan-bon.html">Thống kê báo cáo</a></li>
+                    </ul>
+                </li>
+                <!-- Quản lý thuốc bảo vệ thực vật -->
+                <li class="nav-item">
+                    <a class="nav-link" data-bs-toggle="collapse" href="#menuBVTV" role="button" aria-expanded="false" aria-controls="menuBVTV">
+                        <i class="fas fa-leaf"></i>
+                        <span>Quản lý thuốc bảo vệ thực vật</span>
+                        <i class="fas fa-caret-down float-end"></i>
+                    </a>
+                    <ul class="collapse nav flex-column ms-3" id="menuBVTV">
+                        <li class="nav-item"><a class="nav-link" href="co-so-kinh-doanh-bvtv.html">Quản lý cơ sở kinh doanh thuốc bảo vệ thực vật</a></li>
+                        <li class="nav-item"><a class="nav-link" href="co-so-san-xuat-bvtv.html">Quản lý cơ sở sản xuất thuốc bảo vệ thực vật</a></li>
+                        <li class="nav-item"><a class="nav-link" href="du-lieu-khao-nghiem-bvtv.html">Quản lý thông tin dữ liệu khảo nghiệm, thử nghiệm thuốc bảo vệ thực vật</a></li>
+                        <li class="nav-item"><a class="nav-link" href="thuoc-bvtv-luu-hanh.html">Dữ liệu thuốc bảo vệ thực vật lưu hành tại Việt Nam</a></li>
+                        <li class="nav-item"><a class="nav-link" href="xuat-nhap-khau-bvtv.html">Dữ liệu xuất nhập khẩu thuốc bảo vệ thực vật</a></li>
+                        <li class="nav-item"><a class="nav-link" href="vi-pham-bvtv.html">Dữ liệu vi phạm trong sản xuất kinh doanh thuốc bảo vệ thực vật</a></li>
+                        <li class="nav-item"><a class="nav-link" href="thong-ke-bao-cao-bvtv.html">Thống kê báo cáo</a></li>
+                    </ul>
+                </li>
+                <!-- Thông tin Tình hình sản xuất -->
+                <li class="nav-item">
+                    <a class="nav-link" data-bs-toggle="collapse" href="#menuSX" role="button" aria-expanded="false" aria-controls="menuSX">
+                        <i class="fas fa-seedling"></i>
+                        <span>Thông tin Tình hình sản xuất</span>
+                        <i class="fas fa-caret-down float-end"></i>
+                    </a>
+                    <ul class="collapse nav flex-column ms-3" id="menuSX">
+                        <li class="nav-item"><a class="nav-link" href="co-so-don-vi-trong-trot.html">QL Cơ sở, đơn vị trồng trọt, sản xuất</a></li>
+                        <li class="nav-item"><a class="nav-link" href="so-lieu-trong-trot.html">Số liệu trồng trọt, sản xuất</a></li>
+                        <li class="nav-item"><a class="nav-link" href="du-lieu-lien-ket-hop-tac.html">Dữ liệu liên kết, hợp tác sản xuất</a></li>
+                        <li class="nav-item"><a class="nav-link" href="san-xuat-cong-nghe-cao.html">Dữ liệu Sản xuất ứng dụng công nghệ cao</a></li>
+                        <li class="nav-item"><a class="nav-link" href="co-so-du-dieu-kien-an-toan.html">Dữ liệu cơ sở đủ điều kiện an toàn thực phẩm , VietGap, hữu cơ được chứng nhận.</a></li>
+                        <li class="nav-item"><a class="nav-link" href="thong-ke-bao-cao-san-xuat.html">Thống kê báo cáo</a></li>
+                    </ul>
+                </li>
+                <!-- Tình hình sinh vật gây hại cây trồng -->
+                <li class="nav-item">
+                    <a class="nav-link" data-bs-toggle="collapse" href="#menuSVGH" role="button" aria-expanded="false" aria-controls="menuSVGH">
+                        <i class="fas fa-bug"></i>
+                        <span>Tình hình sinh vật gây hại cây trồng</span>
+                        <i class="fas fa-caret-down float-end"></i>
+                    </a>
+                    <ul class="collapse nav flex-column ms-3" id="menuSVGH">
+                        <li class="nav-item"><a class="nav-link" href="dich-benh-dia-phuong.html">Thông tin các loại dịch bệnh gây hại địa phương</a></li>
+                        <li class="nav-item"><a class="nav-link" href="co-so-bi-dich-benh.html">Số liệu các đơn vị, cơ sở bị dịch bệnh gây hại</a></li>
+                        <li class="nav-item"><a class="nav-link" href="du-bao-dich-benh.html">Thông tin dự báo dịch bệnh</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="kiem-dich-thuc-vat-noi-dia.html">Kiểm dịch thực vật nội địa</a></li>
+                        <li class="nav-item"><a class="nav-link" href="thong-ke-bao-cao-svgh.html">Thống kê báo cáo</a></li>
+                    </ul>
+                </li>
+                <!-- Quản lý thông tin giống cây trồng -->
+                <li class="nav-item">
+                    <a class="nav-link" data-bs-toggle="collapse" href="#menuGiong" role="button" aria-expanded="false" aria-controls="menuGiong">
+                        <i class="fas fa-leaf"></i>
+                        <span>Quản lý thông tin giống cây trồng</span>
+                        <i class="fas fa-caret-down float-end"></i>
+                    </a>
+                    <ul class="collapse nav flex-column ms-3" id="menuGiong">
+                        <li class="nav-item"><a class="nav-link" href="thong-ke-bao-cao-giong.html">Thống kê báo cáo</a></li>
+                        <li class="nav-item"><a class="nav-link" href="du-lieu-giong-cay-trong.html">Quản lý dữ liệu về giống, cây trồng</a></li>
+                        <li class="nav-item"><a class="nav-link" href="co-so-san-xuat-giong.html">Quản lý dữ liệu cơ sở sản xuất giống, cây trồng</a></li>
+                    </ul>
+                </li>
+                <!-- Thông tin thiệt hại do thiên tai -->
+                <li class="nav-item">
+                    <a class="nav-link" data-bs-toggle="collapse" href="#menuThietHai" role="button" aria-expanded="false" aria-controls="menuThietHai">
+                        <i class="fas fa-cloud-showers-heavy"></i>
+                        <span>Thông tin thiệt hại do thiên tai</span>
+                        <i class="fas fa-caret-down float-end"></i>
+                    </a>
+                    <ul class="collapse nav flex-column ms-3" id="menuThietHai">
+                        <li class="nav-item"><a class="nav-link" href="thong-ke-bao-cao-thiet-hai.html">Thống kê báo cáo</a></li>
+                        <li class="nav-item"><a class="nav-link" href="bao-cao-thiet-hai.html">Báo cáo dữ liệu thiệt hại do thiên tai</a></li>
+                        <li class="nav-item"><a class="nav-link" href="tong-hop-thiet-hai.html">Tổng hợp dữ liệu thiệt hại do thiên tai</a></li>
+                        <li class="nav-item"><a class="nav-link" href="bao-cao-tong-hop-thiet-hai.html">Báo cáo tổng hợp dữ liệu thiệt hại do thiên tai tại địa phương.</a></li>
+                    </ul>
+                </li>
+                <!-- Văn bản QPPL lĩnh vực trồng trọt, bảo vệ thực vật -->
+                <li class="nav-item">
+                    <a class="nav-link" data-bs-toggle="collapse" href="#menuVBQPPL" role="button" aria-expanded="false" aria-controls="menuVBQPPL">
+                        <i class="fas fa-file-alt"></i>
+                        <span>Văn bản QPPL lĩnh vực trồng trọt, bảo vệ thực vật</span>
+                        <i class="fas fa-caret-down float-end"></i>
+                    </a>
+                    <ul class="collapse nav flex-column ms-3" id="menuVBQPPL">
+                        <li class="nav-item"><a class="nav-link" href="danh-muc-vbqppl.html">Danh mục VBQPPL</a></li>
+                        <li class="nav-item"><a class="nav-link" href="danh-muc-linh-vuc.html">Danh mục lĩnh vực</a></li>
+                        <li class="nav-item"><a class="nav-link" href="tim-kiem-vbqppl-noi-dung.html">Tìm kiếm VBQPPL theo nội dung</a></li>
+                        <li class="nav-item"><a class="nav-link" href="tim-kiem-vbqppl-cqbh.html">Tìm kiếm VBQPPL theo CQBH</a></li>
+                    </ul>
+                </li>
+                <!-- Quản lý thông tin sản xuất chế biến và thị trường xuất khẩu -->
+                <li class="nav-item">
+                    <a class="nav-link" data-bs-toggle="collapse" href="#menuCheBien" role="button" aria-expanded="false" aria-controls="menuCheBien">
+                        <i class="fas fa-warehouse"></i>
+                        <span>Quản lý thông tin sản xuất chế biến và thị trường xuất khẩu</span>
+                        <i class="fas fa-caret-down float-end"></i>
+                    </a>
+                    <ul class="collapse nav flex-column ms-3" id="menuCheBien">
+                        <li class="nav-item"><a class="nav-link" href="co-so-san-xuat-che-bien.html">Dữ liệu về cơ sở sản xuất chế biến</a></li>
+                        <li class="nav-item"><a class="nav-link" href="thi-truong-xuat-khau.html">Dữ liệu về thị trường xuất khẩu</a></li>
+                        <li class="nav-item"><a class="nav-link" href="tieu-chuan-bao-quan.html">Dữ liệu về tiêu chuẩn quy chuẩn bảo quản, sơ chế, chế biến</a></li>
+                        <li class="nav-item"><a class="nav-link" href="co-so-vi-pham-che-bien.html">QL Cơ sở vi phạm trong lĩnh vực</a></li>
+                        <li class="nav-item"><a class="nav-link" href="thong-ke-bao-cao-che-bien.html">Báo cáo thống kê</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Breadcrumb -->
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="dashboard.html">Trang chủ</a></li>
+                    <li class="breadcrumb-item">Tình hình sinh vật gây hại cây trồng</li>
+                    <li class="breadcrumb-item active">Kiểm dịch thực vật nội địa</li>
+                </ol>
+            </nav>
+
+            <!-- Filter Section -->
+            <div class="filter-section mb-3">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label class="filter-label">Tìm kiếm:</label>
+                            <input type="text" class="form-control" placeholder="Nhập để tìm kiếm">
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label class="filter-label">Loại cây trồng:</label>
+                            <select class="form-select">
+                                <option value="">-- Chọn loại cây trồng --</option>
+                                <option value="1">Lúa</option>
+                                <option value="2">Ngô</option>
+                                <option value="3">Rau</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label class="filter-label">Thời gian:</label>
+                            <div class="input-group">
+                                <input type="date" class="form-control" placeholder="Từ ngày">
+                                <span class="input-group-text">-</span>
+                                <input type="date" class="form-control" placeholder="Đến ngày">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 d-flex align-items-end gap-2">
+                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalThemMoiKiemDich">
+                            <i class="fas fa-plus"></i> Thêm mới
+                        </button>
+                        <button class="btn btn-success">
+                            <i class="fas fa-file-excel"></i> Xuất excel
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Content -->
+            <div class="card">
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-hover">
+                            <thead>
+                                <tr>
+                                    <th>STT</th>
+                                    <th>Thời gian</th>
+                                    <th>Đơn vị kiểm dịch</th>
+                                    <th>Cây trồng</th>
+                                    <th>Sinh vật kiểm dịch</th>
+                                    <th>Kết quả</th>
+                                    <th>Tác vụ</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>15/03/2024</td>
+                                    <td>Chi cục Trồng trọt và Bảo vệ thực vật</td>
+                                    <td>Lúa</td>
+                                    <td>Rầy nâu</td>
+                                    <td>Âm tính</td>
+                                    <td>
+                                        <button class="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#modalThemMoiKiemDich"><i class="fas fa-edit"></i></button>
+                                        <button class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>16/03/2024</td>
+                                    <td>Chi cục Trồng trọt và Bảo vệ thực vật</td>
+                                    <td>Ngô</td>
+                                    <td>Sâu đục thân</td>
+                                    <td>Dương tính</td>
+                                    <td>
+                                        <button class="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#modalThemMoiKiemDich"><i class="fas fa-edit"></i></button>
+                                        <button class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>17/03/2024</td>
+                                    <td>Chi cục Trồng trọt và Bảo vệ thực vật</td>
+                                    <td>Rau</td>
+                                    <td>Sâu tơ</td>
+                                    <td>Âm tính</td>
+                                    <td>
+                                        <button class="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#modalThemMoiKiemDich"><i class="fas fa-edit"></i></button>
+                                        <button class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- Pagination -->
+                    <div class="pagination-container d-flex align-items-center justify-content-between mt-2">
+                        <nav aria-label="Page navigation">
+                            <ul class="pagination mb-0">
+                                <li class="page-item"><a class="page-link" href="#"><i class="fas fa-angle-double-left"></i></a></li>
+                                <li class="page-item"><a class="page-link" href="#"><i class="fas fa-angle-left"></i></a></li>
+                                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                <li class="page-item"><a class="page-link" href="#"><i class="fas fa-angle-right"></i></a></li>
+                                <li class="page-item"><a class="page-link" href="#"><i class="fas fa-angle-double-right"></i></a></li>
+                            </ul>
+                        </nav>
+                        <div class="items-per-page">
+                            <select class="form-select form-select-sm">
+                                <option value="10">10</option>
+                                <option value="20">20</option>
+                                <option value="50">50</option>
+                            </select>
+                        </div>
+                        <div class="total-items">
+                            Tổng số 2
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Thêm mới Kiểm dịch thực vật nội địa -->
+    <div class="modal fade" id="modalThemMoiKiemDich" tabindex="-1" aria-labelledby="modalThemMoiKiemDichLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <form>
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalThemMoiKiemDichLabel">Thêm mới Kiểm dịch thực vật nội địa</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container-fluid">
+                            <!-- Dòng 1: Mã chứng từ - Ngày kiểm dịch -->
+                            <div class="row mb-2">
+                                <div class="col-md-4">
+                                    <label class="form-label">Mã chứng từ:</label>
+                                    <input type="text" class="form-control" placeholder="Nhập mã chứng từ">
+                                </div>
+                                <div class="col-md-4">
+                                    <label class="form-label">Ngày kiểm dịch:</label>
+                                    <div class="input-group">
+                                        <input type="date" class="form-control">
+                                        <span class="input-group-text bg-success text-white"><i class="fa fa-calendar"></i></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <!-- Empty column to maintain layout -->
+                                </div>
+                            </div>
+
+                            <!-- Dòng 2: Đơn vị thực hiện -->
+                            <div class="row mb-2">
+                                <div class="col-md-12">
+                                    <label class="form-label">Đơn vị thực hiện:</label>
+                                    <input type="text" class="form-control" placeholder="Nhập đơn vị thực hiện">
+                                </div>
+                            </div>
+
+                            <!-- Dòng 3: Địa điểm -->
+                            <div class="row mb-2">
+                                <div class="col-md-12">
+                                    <label class="form-label">Địa điểm:</label>
+                                    <input type="text" class="form-control" placeholder="Nhập địa điểm">
+                                </div>
+                            </div>
+
+                            <!-- Dòng 4: Tỉnh thành - Quận huyện - Xã phường -->
+                            <div class="row mb-2">
+                                <div class="col-md-4">
+                                    <label class="form-label">Tỉnh thành:</label>
+                                    <input type="text" class="form-control" value="Quảng Trị" readonly>
+                                </div>
+                                <div class="col-md-4">
+                                    <label class="form-label">Quận huyện:</label>
+                                    <select class="form-select">
+                                        <option value="">-- Chọn quận huyện --</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-4">
+                                    <label class="form-label">Xã phường:</label>
+                                    <select class="form-select">
+                                        <option value="">-- Chọn xã phường --</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- Dòng 5: Số lượng mẫu kiểm dịch - Người thực hiện -->
+                            <div class="row mb-2">
+                                <div class="col-md-4">
+                                    <label class="form-label">Số lượng mẫu kiểm dịch:</label>
+                                    <input type="number" class="form-control" placeholder="Nhập số lượng">
+                                </div>
+                                <div class="col-md-8">
+                                    <label class="form-label">Người thực hiện:</label>
+                                    <input type="text" class="form-control" placeholder="Nhập tên người thực hiện">
+                                </div>
+                            </div>
+
+                            <!-- Dòng 6: Mục đích -->
+                            <div class="row mb-2">
+                                <div class="col-md-12">
+                                    <label class="form-label">Mục đích:</label>
+                                    <textarea class="form-control" rows="2" placeholder="Nhập mục đích"></textarea>
+                                </div>
+                            </div>
+
+                            <!-- Dòng 7: Nội dung kiểm dịch -->
+                            <div class="row mb-2">
+                                <div class="col-md-12">
+                                    <label class="form-label">Nội dung kiểm dịch:</label>
+                                    <textarea class="form-control" rows="3" placeholder="Nhập nội dung kiểm dịch"></textarea>
+                                </div>
+                            </div>
+
+                            <!-- Dòng 8: Kết quả -->
+                            <div class="row mb-2">
+                                <div class="col-md-12">
+                                    <label class="form-label">Kết quả:</label>
+                                    <textarea class="form-control" rows="2" placeholder="Nhập kết quả"></textarea>
+                                </div>
+                            </div>
+
+                            <hr>
+                            <b><i>Thông tin chi tiết thiệt hại theo cây trồng:</i></b>
+                            <div class="table-responsive mt-2">
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>STT</th>
+                                            <th>Loại đối tượng</th>
+                                            <th>Đối tượng</th>
+                                            <th>Khối lượng (kg)</th>
+                                            <th>Diện tích (ha)</th>
+                                            <th>Đối tượng phát hiện</th>
+                                            <th>Kết quả</th>
+                                            <th>Tác vụ</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>
+                                                <select class="form-select" onchange="handleObjectTypeChange(this)">
+                                                    <option value="">-- Chọn loại --</option>
+                                                    <option value="caytrong">Cây trồng</option>
+                                                    <option value="hanghoa">Hàng hóa</option>
+                                                </select>
+                                            </td>
+                                            <td>
+                                                <select class="form-select object-select">
+                                                    <option value="">-- Chọn đối tượng --</option>
+                                                </select>
+                                            </td>
+                                            <td>
+                                                <input type="number" class="form-control" placeholder="Nhập khối lượng">
+                                            </td>
+                                            <td>
+                                                <input type="number" class="form-control" placeholder="Nhập diện tích">
+                                            </td>
+                                            <td>
+                                                <select class="form-select">
+                                                    <option value="">-- Chọn đối tượng phát hiện --</option>
+                                                </select>
+                                            </td>
+                                            <td>
+                                                <input type="text" class="form-control" placeholder="Nhập kết quả">
+                                            </td>
+                                            <td>
+                                                <button type="button" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <button type="button" class="btn btn-primary btn-sm mt-2" onclick="addNewRow()">
+                                    <i class="fa fa-plus"></i> Thêm dòng
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-success"><i class="fa fa-save"></i> Lưu</button>
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal"><i class="fa fa-times"></i> Hủy</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Hàm xử lý khi thay đổi loại đối tượng
+        function handleObjectTypeChange(selectElement) {
+            const row = selectElement.closest('tr');
+            const objectSelect = row.querySelector('.object-select');
+            const selectedValue = selectElement.value;
+            
+            // Xóa các option hiện tại
+            objectSelect.innerHTML = '<option value="">-- Chọn đối tượng --</option>';
+            
+            if (selectedValue === 'caytrong') {
+                // Thêm danh sách giống cây trồng
+                // TODO: Thay thế bằng dữ liệu thực tế từ database
+                const cayTrongOptions = [
+                    { value: '1', text: 'Lúa' },
+                    { value: '2', text: 'Ngô' },
+                    { value: '3', text: 'Rau' }
+                ];
+                cayTrongOptions.forEach(option => {
+                    const optionElement = document.createElement('option');
+                    optionElement.value = option.value;
+                    optionElement.textContent = option.text;
+                    objectSelect.appendChild(optionElement);
+                });
+            } else if (selectedValue === 'hanghoa') {
+                // Thêm danh sách sản phẩm
+                // TODO: Thay thế bằng dữ liệu thực tế từ database
+                const hangHoaOptions = [
+                    { value: '1', text: 'Gạo' },
+                    { value: '2', text: 'Ngô hạt' },
+                    { value: '3', text: 'Rau tươi' }
+                ];
+                hangHoaOptions.forEach(option => {
+                    const optionElement = document.createElement('option');
+                    optionElement.value = option.value;
+                    optionElement.textContent = option.text;
+                    objectSelect.appendChild(optionElement);
+                });
+            }
+        }
+
+        // Hàm thêm dòng mới vào bảng
+        function addNewRow() {
+            const tbody = document.querySelector('.table tbody');
+            const lastRow = tbody.lastElementChild;
+            const newRow = lastRow.cloneNode(true);
+            
+            // Cập nhật STT
+            const newStt = tbody.children.length + 1;
+            newRow.querySelector('td:first-child').textContent = newStt;
+            
+            // Reset các giá trị input
+            newRow.querySelectorAll('input').forEach(input => {
+                input.value = '';
+            });
+            
+            // Reset các select
+            newRow.querySelectorAll('select').forEach(select => {
+                select.selectedIndex = 0;
+            });
+            
+            tbody.appendChild(newRow);
+        }
+
+        // Xử lý sự kiện xóa dòng
+        document.addEventListener('click', function(e) {
+            if (e.target.closest('.btn-danger')) {
+                const tbody = document.querySelector('.table tbody');
+                if (tbody.children.length > 1) {
+                    e.target.closest('tr').remove();
+                    // Cập nhật lại STT
+                    tbody.querySelectorAll('tr').forEach((row, index) => {
+                        row.querySelector('td:first-child').textContent = index + 1;
+                    });
+                } else {
+                    alert('Không thể xóa dòng cuối cùng!');
+                }
+            }
+        });
+    </script>
+</body>
+</html> 

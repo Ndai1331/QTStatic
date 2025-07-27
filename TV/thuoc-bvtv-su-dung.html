@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loại thuốc bảo vệ thực vật được sử dụng thường xuyên - TTBVTV</title>
+    <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64,AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAQAABILAAASCwAAAAAAAAAAAAD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="top-bar-main">
+            <div class="top-bar-left">
+                SỞ NÔNG NGHIỆP & PTNT TỈNH QUẢNG TRỊ<br>
+                HỆ THỐNG CƠ SỞ DỮ LIỆU NÔNG NGHIỆP
+            </div>
+            <div class="top-bar-center">
+                HỆ THỐNG CSDL LĨNH VỰC TRỒNG TRỌT & BẢO VỆ THỰC VẬT
+            </div>
+            <div class="top-bar-right">
+                <div class="user-menu">
+                    <span>QUẢN TRỊ HỆ THỐNG</span>
+                    <i class="fas fa-user-circle"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="wrapper">
+        <!-- Sidebar -->
+        <nav class="sidebar">
+            <ul class="nav flex-column">
+                <!-- Dashboard -->
+                <li class="nav-item">
+                    <a class="nav-link" href="dashboard.html">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <!-- Quản lý phân bón -->
+                <li class="nav-item">
+                    <a class="nav-link" data-bs-toggle="collapse" href="#menuPhanBon" role="button" aria-expanded="false" aria-controls="menuPhanBon">
+                        <i class="fas fa-box"></i>
+                        <span>Quản lý phân bón</span>
+                        <i class="fas fa-caret-down float-end"></i>
+                    </a>
+                    <ul class="collapse nav flex-column ms-3" id="menuPhanBon">
+                        <li class="nav-item"><a class="nav-link" href="co-so-buon-ban.html">Quản lý cơ sở kinh doanh phân bón</a></li>
+                        <li class="nav-item"><a class="nav-link" href="co-so-san-xuat.html">Quản lý cơ sở sản xuất phân bón</a></li>
+                        <li class="nav-item"><a class="nav-link" href="khao-nghiem.html">Quản lý thông tin dữ liệu khảo nghiệm, thử nghiệm phân bón</a></li>
+                        <li class="nav-item"><a class="nav-link" href="phan-bon.html">Dữ liệu phân bón lưu hành tại Việt Nam</a></li>
+                        <li class="nav-item"><a class="nav-link" href="du-lieu-xuat-nhap-khau-phan-bon.html">Dữ liệu xuất nhập khẩu phân bón</a></li>
+                        <li class="nav-item"><a class="nav-link" href="vi-pham.html">Dữ liệu vi phạm trong sản xuất kinh doanh phân bón</a></li>
+                        <li class="nav-item"><a class="nav-link" href="phan-bon-su-dung.html">Loại phân bón được sử dụng thường xuyên trên địa bàn/vùng trồng</a></li>
+                        <li class="nav-item"><a class="nav-link" href="thong-ke-bao-cao-phan-bon.html">Thống kê báo cáo</a></li>
+                    </ul>
+                </li>
+                <!-- Quản lý thuốc bảo vệ thực vật -->
+                <li class="nav-item">
+                    <a class="nav-link" data-bs-toggle="collapse" href="#menuBVTV" role="button" aria-expanded="false" aria-controls="menuBVTV">
+                        <i class="fas fa-leaf"></i>
+                        <span>Quản lý thuốc bảo vệ thực vật</span>
+                        <i class="fas fa-caret-down float-end"></i>
+                    </a>
+                    <ul class="collapse nav flex-column ms-3" id="menuBVTV">
+                        <li class="nav-item"><a class="nav-link" href="co-so-kinh-doanh-bvtv.html">Quản lý cơ sở kinh doanh thuốc bảo vệ thực vật</a></li>
+                        <li class="nav-item"><a class="nav-link" href="co-so-san-xuat-bvtv.html">Quản lý cơ sở sản xuất thuốc bảo vệ thực vật</a></li>
+                        <li class="nav-item"><a class="nav-link" href="du-lieu-khao-nghiem-bvtv.html">Quản lý thông tin dữ liệu khảo nghiệm, thử nghiệm thuốc bảo vệ thực vật</a></li>
+                        <li class="nav-item"><a class="nav-link" href="thuoc-bvtv-luu-hanh.html">Dữ liệu thuốc bảo vệ thực vật lưu hành tại Việt Nam</a></li>
+                        <li class="nav-item"><a class="nav-link" href="xuat-nhap-khau-bvtv.html">Dữ liệu xuất nhập khẩu thuốc bảo vệ thực vật</a></li>
+                        <li class="nav-item"><a class="nav-link" href="vi-pham-bvtv.html">Dữ liệu vi phạm trong sản xuất kinh doanh thuốc bảo vệ thực vật</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="thuoc-bvtv-su-dung.html">Loại thuốc bảo vệ thực vật được sử dụng thường xuyên trên địa bàn/vùng trồng</a></li>
+                        <li class="nav-item"><a class="nav-link" href="thong-ke-bao-cao-bvtv.html">Thống kê báo cáo</a></li>
+                    </ul>
+                </li>
+                <!-- Thông tin Tình hình sản xuất -->
+                <li class="nav-item">
+                    <a class="nav-link" data-bs-toggle="collapse" href="#menuSX" role="button" aria-expanded="false" aria-controls="menuSX">
+                        <i class="fas fa-seedling"></i>
+                        <span>Thông tin Tình hình sản xuất</span>
+                        <i class="fas fa-caret-down float-end"></i>
+                    </a>
+                    <ul class="collapse nav flex-column ms-3" id="menuSX">
+                        <li class="nav-item"><a class="nav-link" href="co-so-don-vi-trong-trot.html">QL Cơ sở, đơn vị trồng trọt, sản xuất</a></li>
+                        <li class="nav-item"><a class="nav-link" href="so-lieu-trong-trot.html">Số liệu trồng trọt, sản xuất</a></li>
+                        <li class="nav-item"><a class="nav-link" href="du-lieu-lien-ket-hop-tac.html">Dữ liệu liên kết, hợp tác sản xuất</a></li>
+                        <li class="nav-item"><a class="nav-link" href="san-xuat-cong-nghe-cao.html">Dữ liệu Sản xuất ứng dụng công nghệ cao</a></li>
+                        <li class="nav-item"><a class="nav-link" href="co-so-du-dieu-kien-an-toan.html">Dữ liệu cơ sở đủ điều kiện an toàn thực phẩm , VietGap, hữu cơ được chứng nhận.</a></li>
+                        <li class="nav-item"><a class="nav-link" href="thong-ke-bao-cao-san-xuat.html">Thống kê báo cáo</a></li>
+                    </ul>
+                </li>
+                <!-- Tình hình sinh vật gây hại cây trồng -->
+                <li class="nav-item">
+                    <a class="nav-link" data-bs-toggle="collapse" href="#menuSVGH" role="button" aria-expanded="false" aria-controls="menuSVGH">
+                        <i class="fas fa-bug"></i>
+                        <span>Tình hình sinh vật gây hại cây trồng</span>
+                        <i class="fas fa-caret-down float-end"></i>
+                    </a>
+                    <ul class="collapse nav flex-column ms-3" id="menuSVGH">
+                        <li class="nav-item"><a class="nav-link" href="dich-benh-dia-phuong.html">Thông tin các loại dịch bệnh gây hại địa phương</a></li>
+                        <li class="nav-item"><a class="nav-link" href="co-so-bi-dich-benh.html">Số liệu các đơn vị, cơ sở bị dịch bệnh gây hại</a></li>
+                        <li class="nav-item"><a class="nav-link" href="du-bao-dich-benh.html">Thông tin dự báo dịch bệnh</a></li>
+                        <li class="nav-item"><a class="nav-link" href="thong-ke-bao-cao-svgh.html">Thống kê báo cáo</a></li>
+                    </ul>
+                </li>
+                <!-- Quản lý thông tin giống cây trồng -->
+                <li class="nav-item">
+                    <a class="nav-link" data-bs-toggle="collapse" href="#menuGiong" role="button" aria-expanded="false" aria-controls="menuGiong">
+                        <i class="fas fa-leaf"></i>
+                        <span>Quản lý thông tin giống cây trồng</span>
+                        <i class="fas fa-caret-down float-end"></i>
+                    </a>
+                    <ul class="collapse nav flex-column ms-3" id="menuGiong">
+                        <li class="nav-item"><a class="nav-link" href="thong-ke-bao-cao-giong.html">Thống kê báo cáo</a></li>
+                        <li class="nav-item"><a class="nav-link" href="du-lieu-giong-cay-trong.html">Quản lý dữ liệu về giống, cây trồng</a></li>
+                        <li class="nav-item"><a class="nav-link" href="co-so-san-xuat-giong.html">Quản lý dữ liệu cơ sở sản xuất giống, cây trồng</a></li>
+                    </ul>
+                </li>
+                <!-- Thông tin thiệt hại do thiên tai -->
+                <li class="nav-item">
+                    <a class="nav-link" data-bs-toggle="collapse" href="#menuThietHai" role="button" aria-expanded="false" aria-controls="menuThietHai">
+                        <i class="fas fa-cloud-showers-heavy"></i>
+                        <span>Thông tin thiệt hại do thiên tai</span>
+                        <i class="fas fa-caret-down float-end"></i>
+                    </a>
+                    <ul class="collapse nav flex-column ms-3" id="menuThietHai">
+                        <li class="nav-item"><a class="nav-link" href="thong-ke-bao-cao-thiet-hai.html">Thống kê báo cáo</a></li>
+                        <li class="nav-item"><a class="nav-link" href="bao-cao-thiet-hai.html">Báo cáo dữ liệu thiệt hại do thiên tai</a></li>
+                        <li class="nav-item"><a class="nav-link" href="tong-hop-thiet-hai.html">Tổng hợp dữ liệu thiệt hại do thiên tai</a></li>
+                        <li class="nav-item"><a class="nav-link" href="bao-cao-tong-hop-thiet-hai.html">Báo cáo tổng hợp dữ liệu thiệt hại do thiên tai tại địa phương.</a></li>
+                    </ul>
+                </li>
+                <!-- Văn bản QPPL lĩnh vực trồng trọt, bảo vệ thực vật -->
+                <li class="nav-item">
+                    <a class="nav-link" data-bs-toggle="collapse" href="#menuVBQPPL" role="button" aria-expanded="false" aria-controls="menuVBQPPL">
+                        <i class="fas fa-file-alt"></i>
+                        <span>Văn bản QPPL lĩnh vực trồng trọt, bảo vệ thực vật</span>
+                        <i class="fas fa-caret-down float-end"></i>
+                    </a>
+                    <ul class="collapse nav flex-column ms-3" id="menuVBQPPL">
+                        <li class="nav-item"><a class="nav-link" href="danh-muc-vbqppl.html">Danh mục VBQPPL</a></li>
+                        <li class="nav-item"><a class="nav-link" href="danh-muc-linh-vuc.html">Danh mục lĩnh vực</a></li>
+                        <li class="nav-item"><a class="nav-link" href="tim-kiem-vbqppl-noi-dung.html">Tìm kiếm VBQPPL theo nội dung</a></li>
+                        <li class="nav-item"><a class="nav-link" href="tim-kiem-vbqppl-cqbh.html">Tìm kiếm VBQPPL theo CQBH</a></li>
+                    </ul>
+                </li>
+                <!-- Quản lý thông tin sản xuất chế biến và thị trường xuất khẩu -->
+                <li class="nav-item">
+                    <a class="nav-link" data-bs-toggle="collapse" href="#menuCheBien" role="button" aria-expanded="false" aria-controls="menuCheBien">
+                        <i class="fas fa-warehouse"></i>
+                        <span>Quản lý thông tin sản xuất chế biến và thị trường xuất khẩu</span>
+                        <i class="fas fa-caret-down float-end"></i>
+                    </a>
+                    <ul class="collapse nav flex-column ms-3" id="menuCheBien">
+                        <li class="nav-item"><a class="nav-link" href="co-so-san-xuat-che-bien.html">Dữ liệu về cơ sở sản xuất chế biến</a></li>
+                        <li class="nav-item"><a class="nav-link" href="thi-truong-xuat-khau.html">Dữ liệu về thị trường xuất khẩu</a></li>
+                        <li class="nav-item"><a class="nav-link" href="tieu-chuan-bao-quan.html">Dữ liệu về tiêu chuẩn quy chuẩn bảo quản, sơ chế, chế biến</a></li>
+                        <li class="nav-item"><a class="nav-link" href="co-so-vi-pham-che-bien.html">QL Cơ sở vi phạm trong lĩnh vực</a></li>
+                        <li class="nav-item"><a class="nav-link" href="thong-ke-bao-cao-che-bien.html">Báo cáo thống kê</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Breadcrumb -->
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="dashboard.html">Trang chủ</a></li>
+                    <li class="breadcrumb-item">Quản lý thuốc bảo vệ thực vật</li>
+                    <li class="breadcrumb-item active">Loại thuốc bảo vệ thực vật được sử dụng thường xuyên trên địa bàn/vùng trồng</li>
+                </ol>
+            </nav>
+
+            <!-- Filter Section -->
+            <div class="filter-section">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="filter-label">Tìm kiếm:</label>
+                            <input type="text" class="form-control" placeholder="Nhập để tìm kiếm">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="filter-label">Tỉnh/Thành phố:</label>
+                            <select class="form-select">
+                                <option value="">-- Chọn tỉnh/thành phố --</option>
+                                <option value="QT">Quảng Trị</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="filter-label">Loại cây trồng:</label>
+                            <select class="form-select">
+                                <option value="">-- Chọn loại cây trồng --</option>
+                                <option value="lua">Lúa</option>
+                                <option value="ngu">Ngô</option>
+                                <option value="rau">Rau màu</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Content -->
+            <div class="card">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <h5 class="mb-0">Loại thuốc bảo vệ thực vật được sử dụng thường xuyên trên địa bàn/vùng trồng</h5>
+                    <div>
+                        <button class="btn btn-success" id="btnXuatExcel">
+                            <i class="fas fa-file-excel"></i> Xuất excel
+                        </button>
+                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalThemThuoc">
+                            <i class="fas fa-plus"></i> Thêm mới
+                        </button>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-hover">
+                            <thead>
+                                <tr>
+                                    <th>STT</th>
+                                    <th>Tên thuốc BVTV</th>
+                                    <th>Hoạt chất</th>
+                                    <th>Khu vực sử dụng</th>
+                                    <th>Loại cây trồng</th>
+                                    <th>Đối tượng phòng trừ</th>
+                                    <th>Liều lượng sử dụng</th>
+                                    <th>Tác vụ</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>Actara 25WG</td>
+                                    <td>Thiamethoxam</td>
+                                    <td>Xã Hải Lệ, huyện Triệu Phong</td>
+                                    <td>Lúa</td>
+                                    <td>Rầy nâu, rầy lưng trắng</td>
+                                    <td>0.5 kg/ha</td>
+                                    <td>
+                                        <button class="btn btn-sm btn-warning"><i class="fas fa-edit"></i></button>
+                                        <button class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>Fujione 40EC</td>
+                                    <td>Fipronil</td>
+                                    <td>Xã Gio Mỹ, huyện Gio Linh</td>
+                                    <td>Lúa</td>
+                                    <td>Sâu cuốn lá</td>
+                                    <td>0.4 lít/ha</td>
+                                    <td>
+                                        <button class="btn btn-sm btn-warning"><i class="fas fa-edit"></i></button>
+                                        <button class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal Thêm mới -->
+            <div class="modal fade" id="modalThemThuoc" tabindex="-1">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Thêm mới Loại thuốc BVTV được sử dụng thường xuyên</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form id="formThemThuocBVTV">
+                                <div class="mb-3">
+                                    <label class="form-label">Tên thuốc BVTV<span class="text-danger">*</span>:</label>
+                                    <select class="form-select" required>
+                                        <option value="">-- Chọn thuốc BVTV --</option>
+                                        <option value="Actara">Actara 25WG</option>
+                                        <option value="Fujione">Fujione 40EC</option>
+                                        <option value="Confidor">Confidor 100SL</option>
+                                    </select>
+                                </div>
+                                <h6 class="text-dark mb-3">Thông Tin Về Việc Sử Dụng Thuốc BVTV:</h6>
+                                <div class="mb-3">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <label class="form-label">Tỉnh/Thành phố:</label>
+                                            <select class="form-select">
+                                                <option value="">-- Chọn tỉnh/thành phố --</option>
+                                                <option value="QT">Quảng Trị</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label class="form-label">Quận/Huyện:</label>
+                                            <select class="form-select">
+                                                <option value="">-- Chọn quận/huyện --</option>
+                                                <option value="TP">Đông Hà</option>
+                                                <option value="TP">Quảng Trị</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label class="form-label">Xã/Phường:</label>
+                                            <select class="form-select">
+                                                <option value="">-- Chọn xã/phường --</option>
+                                                <option value="XL">Xã Hải Lệ</option>
+                                                <option value="XA">Xã Hải An</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="mt-3">
+                                        <label class="form-label">Khu vực/vùng trồng sử dụng phổ biến:</label>
+                                        <input type="text" class="form-control" placeholder="Nhập khu vực thường xuyên sử dụng thuốc BVTV">
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Loại cây trồng áp dụng:</label>
+                                    <input type="text" class="form-control" placeholder="Nhập loại cây trồng">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Liều lượng sử dụng trung bình:</label>
+                                    <div class="input-group">
+                                        <input type="number" class="form-control" placeholder="Nhập liều lượng">
+                                        <span class="input-group-text">kg/ha hoặc lít/ha</span>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Thời điểm sử dụng thuốc:</label>
+                                    <input type="text" class="form-control" placeholder="Nhập thời điểm sử dụng thuốc BVTV">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Hình thức sử dụng thuốc:</label>
+                                    <input type="text" class="form-control" placeholder="Nhập hình thức sử dụng thuốc BVTV">
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+                            <button type="submit" form="formThemThuocBVTV" class="btn btn-primary">Lưu</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html> 

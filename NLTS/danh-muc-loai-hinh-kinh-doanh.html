@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danh mục loại hình kinh doanh</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="top-bar-main">
+            <div class="top-bar-left">
+                SỞ NÔNG NGHIỆP & PTNT TỈNH QUẢNG TRỊ<br>
+                HỆ THỐNG CƠ SỞ DỮ LIỆU NÔNG NGHIỆP
+            </div>
+            <div class="top-bar-center">
+                HỆ THỐNG CSDL QUẢN LÝ CHẤT LƯỢNG NÔNG LÂM THỦY SẢN
+            </div>
+            <div class="top-bar-right">
+                <div class="user-menu">
+                    <span>QUẢN TRỊ HỆ THỐNG</span>
+                    <i class="fas fa-user-circle"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="wrapper">
+        <!-- Sidebar -->
+        <nav class="sidebar">
+            <ul class="nav flex-column">
+                <!-- Dashboard -->
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">
+                        <i class="fas fa-tachometer-alt"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <!-- Quản lý ATTP, vi phạm chất lượng và ATTP -->
+                <li class="nav-item">
+                    <a class="nav-link" data-bs-toggle="collapse" href="#qlCoSoQuanLySubmenu" role="button" aria-expanded="true" aria-controls="qlCoSoQuanLySubmenu">
+                        <i class="fas fa-warehouse"></i>
+                        <span>Quản lý ATTP, vi phạm chất lượng và ATTP</span>
+                        <i class="fas fa-caret-down float-end"></i>
+                    </a>
+                    <div class="collapse show" id="qlCoSoQuanLySubmenu">
+                        <ul class="nav flex-column ms-3">
+                            <li class="nav-item"><a class="nav-link" href="co-so-du-dieu-kien.html">DL các cơ sở đạt chứng nhận quản lý chất lượng, hợp chuẩn hợp quy.</a></li>
+                            <li class="nav-item"><a class="nav-link" href="dieu-tra-kiem-ke.html">DL về các đợt điều tra, kiểm kê đánh giá</a></li>
+                            <li class="nav-item"><a class="nav-link" href="co-so-vi-pham.html">DL về vi phạm quản lý chất lượng</a></li>
+                            <li class="nav-item"><a class="nav-link" href="chung-nhan-het-han.html">DL về các cơ sở, chứng nhận hết hạn</a></li>
+                            <li class="nav-item"><a class="nav-link" href="bao-cao-thong-ke-tong-hop.html">Báo cáo thống kê</a></li>
+                            <li class="nav-item"><a class="nav-link active" href="danh-muc-loai-hinh-kinh-doanh.html">Danh mục loại hình kinh doanh</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <!-- Các phân hệ cha khác giữ nguyên như các file khác -->
+                <li class="nav-item">
+                    <a class="nav-link" data-bs-toggle="collapse" href="#qlBaoCaoDinhKySubmenu" role="button" aria-expanded="false" aria-controls="qlBaoCaoDinhKySubmenu">
+                        <i class="fas fa-file-alt"></i>
+                        <span>Quản lý báo cáo định kỳ</span>
+                        <i class="fas fa-caret-down float-end"></i>
+                    </a>
+                    <div class="collapse" id="qlBaoCaoDinhKySubmenu">
+                        <ul class="nav flex-column ms-3">
+                            <li class="nav-item"><a class="nav-link" href="bao-cao-dinh-ky-co-so.html">DL thống kê báo cáo định kỳ các cơ sở</a></li>
+                            <li class="nav-item"><a class="nav-link" href="bao-cao-phan-loai-vat-tu-nong-nghiep.html">Báo cáo các phân loại điều kiện đảm bảo chất lượng các cơ sở sản xuất kinh doanh vật tư nông nghiệp</a></li>
+                            <li class="nav-item"><a class="nav-link" href="bao-cao-phan-loai-nong-lam-san-muoi.html">Báo cáo các phân loại điều kiện đảm bảo chất lượng an toàn thực phẩm các sản phẩm nông lâm sản, muối</a></li>
+                            <li class="nav-item"><a class="nav-link" href="bao-cao-vi-pham-linh-vuc.html">DL báo cáo vi phạm trong lĩnh vực</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <!-- ... các phân hệ cha khác ... -->
+            </ul>
+        </nav>
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Breadcrumb -->
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html">Trang chủ</a></li>
+                    <li class="breadcrumb-item"><a href="#">Quản lý ATTP, vi phạm chất lượng và ATTP</a></li>
+                    <li class="breadcrumb-item active">Danh mục loại hình kinh doanh</li>
+                </ol>
+            </nav>
+            <div class="card">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <div class="d-flex align-items-center gap-2">
+                            <input type="text" class="form-control search-input" style="width: 220px;" placeholder="Tìm kiếm">
+                        </div>
+                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalLoaiHinhKinhDoanh" onclick="openAddLoaiHinhKinhDoanhModal()"><i class="fas fa-plus"></i> Thêm mới</button>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-hover align-middle">
+                            <thead class="table-light">
+                                <tr>
+                                    <th>Mã loại</th>
+                                    <th>Tên loại hình kinh doanh</th>
+                                    <th>Ghi chú</th>
+                                    <th>Trạng thái</th>
+                                    <th>Tác vụ</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>LH01</td>
+                                    <td>Kinh doanh thực phẩm</td>
+                                    <td></td>
+                                    <td class="text-center"><input type="checkbox" checked disabled></td>
+                                    <td class="action-btns text-center">
+                                        <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#modalLoaiHinhKinhDoanh" onclick="openEditLoaiHinhKinhDoanhModal('LH01','Kinh doanh thực phẩm','','true')"><i class="fas fa-pen"></i></button>
+                                        <button class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>LH02</td>
+                                    <td>Kinh doanh dịch vụ ăn uống</td>
+                                    <td>Ghi chú mẫu</td>
+                                    <td class="text-center"><input type="checkbox" disabled></td>
+                                    <td class="action-btns text-center">
+                                        <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#modalLoaiHinhKinhDoanh" onclick="openEditLoaiHinhKinhDoanhModal('LH02','Kinh doanh dịch vụ ăn uống','Ghi chú mẫu','false')"><i class="fas fa-pen"></i></button>
+                                        <button class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="pagination-container">
+                        <div>
+                            <button class="btn btn-outline-secondary btn-sm"><i class="fas fa-angle-double-left"></i></button>
+                            <button class="btn btn-outline-secondary btn-sm"><i class="fas fa-angle-left"></i></button>
+                            <span class="mx-2">1</span>
+                            <button class="btn btn-outline-secondary btn-sm"><i class="fas fa-angle-right"></i></button>
+                            <button class="btn btn-outline-secondary btn-sm"><i class="fas fa-angle-double-right"></i></button>
+                        </div>
+                        <div class="d-flex align-items-center">
+                            <select class="form-select form-select-sm" style="width: 70px;">
+                                <option value="10">10</option>
+                                <option value="20">20</option>
+                                <option value="50">50</option>
+                            </select>
+                            <span class="ms-2">2 Tổng số</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal Thêm/Sửa Loại hình kinh doanh -->
+    <div class="modal fade" id="modalLoaiHinhKinhDoanh" tabindex="-1" aria-labelledby="modalLoaiHinhKinhDoanhLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalLoaiHinhKinhDoanhLabel">Thêm mới Loại hình kinh doanh</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form id="formLoaiHinhKinhDoanh">
+              <div class="mb-3">
+                <label for="maLoai" class="form-label">Mã loại <span class="text-danger">*</span></label>
+                <input type="text" class="form-control" id="maLoai" name="maLoai" required>
+              </div>
+              <div class="mb-3">
+                <label for="tenLoai" class="form-label">Tên loại hình kinh doanh <span class="text-danger">*</span></label>
+                <input type="text" class="form-control" id="tenLoai" name="tenLoai" required>
+              </div>
+              <div class="mb-3">
+                <label for="ghiChu" class="form-label">Ghi chú</label>
+                <input type="text" class="form-control" id="ghiChu" name="ghiChu">
+              </div>
+              <div class="mb-3">
+                <label for="trangThai" class="form-label">Trạng thái</label>
+                <select class="form-select" id="trangThai" name="trangThai">
+                  <option value="1">Đang hoạt động</option>
+                  <option value="0">Ngừng hoạt động</option>
+                </select>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+            <button type="submit" class="btn btn-primary" form="formLoaiHinhKinhDoanh">Lưu</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+    <script>
+      function openAddLoaiHinhKinhDoanhModal() {
+        document.getElementById('modalLoaiHinhKinhDoanhLabel').innerText = 'Thêm mới Loại hình kinh doanh';
+        document.getElementById('formLoaiHinhKinhDoanh').reset();
+        document.getElementById('trangThai').value = '1';
+      }
+      function openEditLoaiHinhKinhDoanhModal(ma, ten, ghiChu, trangThai) {
+        document.getElementById('modalLoaiHinhKinhDoanhLabel').innerText = 'Sửa Loại hình kinh doanh';
+        document.getElementById('maLoai').value = ma;
+        document.getElementById('tenLoai').value = ten;
+        document.getElementById('ghiChu').value = ghiChu;
+        document.getElementById('trangThai').value = trangThai === 'true' ? '1' : '0';
+      }
+    </script>
+</body>
+</html> 

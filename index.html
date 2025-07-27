@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cơ sở dữ liệu Nông nghiệp tỉnh Quảng Trị</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <img src="https://csdlnn.quangtri.gov.vn/img/logo-lam-nghiep.png" alt="Logo Sở Nông nghiệp và Môi trường tỉnh Quảng Trị" class="logo-image">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+        <div class="container">
+            <!-- Loading Section -->
+            <div id="loading" class="loading">
+                <div class="spinner"></div>
+                <p>Đang tải dữ liệu...</p>
+            </div>
+
+            <!-- Error Section -->
+            <div id="error" class="error hidden">
+                <i class="fas fa-exclamation-triangle"></i>
+                <h3>Lỗi tải dữ liệu</h3>
+                <p>Có lỗi xảy ra khi tải dữ liệu. Vui lòng thử lại sau.</p>
+                <button id="retryBtn" class="btn btn-primary">
+                    <i class="fas fa-redo"></i>
+                    Thử lại
+                </button>
+            </div>
+
+            <!-- Modules Grid -->
+            <div id="modulesGrid" class="modules-grid hidden">
+                <div class="section-header">
+                    <p>Chọn phân hệ để truy cập cơ sở dữ liệu chuyên ngành</p>
+                </div>
+                <div id="modulesContainer" class="modules-container">
+                    <!-- Modules will be loaded here -->
+                </div>
+            </div>
+
+            <!-- Dashboard Section -->
+            <div class="dashboard-section">
+                <div class="dashboard-content">
+                    <div class="dashboard-filter-row">
+                        <div class="date-picker-group">
+                            <label for="fromDate">Từ ngày:</label>
+                            <input type="date" id="fromDate" class="form-date" />
+                        </div>
+                        <div class="date-picker-group">
+                            <label for="toDate">Đến ngày:</label>
+                            <input type="date" id="toDate" class="form-date" />
+                        </div>
+                        <div class="dropdown-group">
+                            <label for="provinceSelect">Tỉnh/Thành phố:</label>
+                            <select id="provinceSelect" class="form-select">
+                                <option value="">Chọn tỉnh/thành phố</option>
+                            </select>
+                        </div>
+                        <div class="dropdown-group">
+                            <label for="wardSelect">Phường/Xã:</label>
+                            <select id="wardSelect" class="form-select">
+                                <option value="">Chọn phường/xã</option>
+                            </select>
+                        </div>
+                        <div class="button-group">
+                            <label class="invisible-label"> </label>
+                            <button id="applyDashboardFilter" class="btn btn-primary apply-filter-btn"
+                            onclick="loadDashboardData()">Áp dụng</button>
+                        </div>
+                    </div>
+                    <div class="dashboard-tabs">
+                        <div class="tab-container">
+                            <div class="tab-item active" data-tab="agriculture">
+                                <i class="fas fa-seedling"></i>
+                                <span>Nông nghiệp</span>
+                            </div>
+                            <div class="tab-item" data-tab="forestry">
+                                <i class="fas fa-tree"></i>
+                                <span>Lâm nghiệp</span>
+                            </div>
+                            <div class="tab-item" data-tab="fishery">
+                                <i class="fas fa-fish"></i>
+                                <span>Thủy sản</span>
+                            </div>
+                            <div class="tab-item" data-tab="livestock">
+                                <i class="fas fa-paw"></i>
+                                <span>Chăn nuôi</span>
+                            </div>
+                            <div class="tab-item" data-tab="quality">
+                                <i class="fas fa-award"></i>
+                                <span>Chất lượng</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="dashboardSubContent"></div>
+                    <div id="dashboardChartContainer" style="width:100%;margin-top:24px;">
+                        <canvas id="dashboardChart" style="max-width:100%;background:#fff;border-radius:12px;"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <p>&copy; 2025 Cơ sở dữ liệu Nông nghiệp tỉnh Quảng Trị</p>
+                </div>
+                <div class="footer-links">
+                   
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html> 

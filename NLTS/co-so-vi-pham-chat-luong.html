@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dữ liệu các cơ sở vi phạm chất lượng và ATTP - QLCL NLTS</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="top-bar-main">
+            <div class="top-bar-left">
+                SỞ NÔNG NGHIỆP & PTNT TỈNH QUẢNG TRỊ<br>
+                HỆ THỐNG CƠ SỞ DỮ LIỆU NÔNG NGHIỆP
+            </div>
+            <div class="top-bar-center">
+                HỆ THỐNG CSDL QUẢN LÝ CHẤT LƯỢNG NÔNG LÂM THỦY SẢN
+            </div>
+            <div class="top-bar-right">
+                <div class="user-menu">
+                    <span>QUẢN TRỊ HỆ THỐNG</span>
+                    <i class="fas fa-user-circle"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="wrapper">
+        <!-- Sidebar -->
+        <nav class="sidebar">
+            <ul class="nav flex-column">
+                <!-- Dashboard -->
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">
+                        <i class="fas fa-tachometer-alt"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <!-- Quản lý Cơ sở chế biến nông lâm thủy sản -->
+                <li class="nav-item">
+                    <a class="nav-link" data-bs-toggle="collapse" href="#qlDoanhNghiepSubmenu" role="button" aria-expanded="false" aria-controls="qlDoanhNghiepSubmenu">
+                        <i class="fas fa-briefcase"></i>
+                        <span>Quản lý Cơ sở chế biến nông lâm thủy sản</span>
+                        <i class="fas fa-caret-down float-end"></i>
+                    </a>
+                    <div class="collapse" id="qlDoanhNghiepSubmenu">
+                        <ul class="nav flex-column ms-3">
+                            <li class="nav-item"><a class="nav-link" href="co-so-che-bien.html">DL các doanh nghiệp sản xuất kinh doanh</a></li>
+                            <li class="nav-item"><a class="nav-link" href="pham-vi-kinh-doanh.html">DL địa bàn, phạm vi sản xuất kinh doanh</a></li>
+                            <li class="nav-item"><a class="nav-link" href="hoat-dong-kinh-doanh.html">DL Tình hình hoạt động kinh doanh</a></li>
+                            <li class="nav-item"><a class="nav-link" href="bao-cao-thong-ke-doanh-nghiep.html">Báo cáo thống kê</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <!-- Quản lý ATTP, vi phạm chất lượng và ATTP -->
+                <li class="nav-item">
+                    <a class="nav-link" data-bs-toggle="collapse" href="#qlCoSoQuanLySubmenu" role="button" aria-expanded="false" aria-controls="qlCoSoQuanLySubmenu">
+                        <i class="fas fa-warehouse"></i>
+                        <span>Quản lý ATTP, vi phạm chất lượng và ATTP</span>
+                        <i class="fas fa-caret-down float-end"></i>
+                    </a>
+                    <div class="collapse" id="qlCoSoQuanLySubmenu">
+                        <ul class="nav flex-column ms-3">
+                            <li class="nav-item"><a class="nav-link" href="co-so-du-dieu-kien.html">DL các cơ sở đạt chứng nhận quản lý chất lượng, hợp chuẩn hợp quy</a></li>
+                            <li class="nav-item"><a class="nav-link" href="dieu-tra-kiem-ke.html">DL về các đợt điều tra, kiểm kê đánh giá</a></li>
+                            <li class="nav-item"><a class="nav-link" href="co-so-vi-pham.html">DL về vi phạm quản lý chất lượng</a></li>
+                            <li class="nav-item"><a class="nav-link" href="chung-nhan-het-han.html">DL về các cơ sở, chứng nhận hết hạn</a></li>
+                            <li class="nav-item"><a class="nav-link" href="bao-cao-thong-ke-tong-hop.html">Báo cáo thống kê tổng hợp</a></li>
+                            <li class="nav-item"><a class="nav-link" href="bao-cao-thong-ke-co-so.html">Báo cáo thống kê</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <!-- CSDL về các văn bản quy phạm pháp luật liên quan -->
+                <li class="nav-item">
+                    <a class="nav-link" data-bs-toggle="collapse" href="#vbqpplSubmenu" role="button" aria-expanded="false" aria-controls="vbqpplSubmenu">
+                        <i class="fas fa-book"></i>
+                        <span>CSDL về các văn bản quy phạm pháp luật liên quan</span>
+                        <i class="fas fa-caret-down float-end"></i>
+                    </a>
+                    <div class="collapse" id="vbqpplSubmenu">
+                        <ul class="nav flex-column ms-3">
+                            <li class="nav-item"><a class="nav-link" href="danh-muc-vbqppl.html">Danh mục VBQPPL</a></li>
+                            <li class="nav-item"><a class="nav-link" href="danh-muc-linh-vuc.html">Danh mục lĩnh vực</a></li>
+                            <li class="nav-item"><a class="nav-link" href="danh-muc-thu-muc-vbqppl.html">Thư mục văn bản</a></li>
+                            <li class="nav-item"><a class="nav-link" href="tim-kiem-vbqppl-noi-dung.html">Tìm kiếm VBQPPL theo nội dung</a></li>
+                            <li class="nav-item"><a class="nav-link" href="tim-kiem-vbqppl-cqbh.html">Tìm kiếm VBQPPL theo CQBH</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <!-- Quảng bá, xúc tiến thương mại -->
+                <li class="nav-item">
+                    <a class="nav-link" data-bs-toggle="collapse" href="#quangBaSubmenu" role="button" aria-expanded="false" aria-controls="quangBaSubmenu">
+                        <i class="fas fa-bullhorn"></i>
+                        <span>Quảng bá, xúc tiến thương mại</span>
+                        <i class="fas fa-caret-down float-end"></i>
+                    </a>
+                    <div class="collapse" id="quangBaSubmenu">
+                        <ul class="nav flex-column ms-3">
+                            <li class="nav-item"><a class="nav-link" href="kenh-quang-ba.html">DL các kênh quảng bá xúc tiến thương mại</a></li>
+                            <li class="nav-item"><a class="nav-link" href="phat-trien-thi-truong.html">DL Tình hình phát triển thị trường</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <!-- Quản lý thông tin cung cấp cho người dân -->
+                <li class="nav-item">
+                    <a class="nav-link" data-bs-toggle="collapse" href="#qlThongTinCungCapSubmenu" role="button" aria-expanded="false" aria-controls="qlThongTinCungCapSubmenu">
+                        <i class="fas fa-info-circle"></i>
+                        <span>Quản lý thông tin cung cấp cho người dân</span>
+                        <i class="fas fa-caret-down float-end"></i>
+                    </a>
+                    <div class="collapse show" id="qlThongTinCungCapSubmenu">
+                        <ul class="nav flex-column ms-3">
+                            <li class="nav-item"><a class="nav-link active" href="co-so-vi-pham-chat-luong.html">Dữ liệu các cơ sở vi phạm chất lượng và ATTP</a></li>
+                            <li class="nav-item"><a class="nav-link" href="co-so-hop-chuan-hop-quy.html">Dữ liệu các cơ sở đã được chứng nhận về ATTP còn hiệu lực</a></li>
+                            <li class="nav-item"><a class="nav-link" href="chuoi-cung-ung.html">Dữ liệu các chuỗi cung ứng thực phẩm an toàn</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <!-- Giá cả thị trường vật tư nông nghiệp -->
+                <li class="nav-item">
+                    <a class="nav-link" data-bs-toggle="collapse" href="#giaCaSubmenu" role="button" aria-expanded="false" aria-controls="giaCaSubmenu">
+                        <i class="fas fa-coins"></i>
+                        <span>Giá cả thị trường vật tư nông nghiệp</span>
+                        <i class="fas fa-caret-down float-end"></i>
+                    </a>
+                    <div class="collapse" id="giaCaSubmenu">
+                        <ul class="nav flex-column ms-3">
+                            <li class="nav-item"><a class="nav-link" href="gia-ca-san-pham-nong-san.html">Giá cả sản phẩm nông sản</a></li>
+                            <li class="nav-item"><a class="nav-link" href="danh-muc-loai-vat-tu-nong-nghiep.html">Danh mục loại vật tư nông nghiệp</a></li>
+                            <li class="nav-item"><a class="nav-link" href="danh-muc-vat-tu-nong-nghiep.html">Danh mục vật tư nông nghiệp</a></li>
+                            <li class="nav-item"><a class="nav-link" href="gia-ca-vat-tu-nong-nghiep.html">Giá cả vật tư nông nghiệp</a></li>
+                            <li class="nav-item"><a class="nav-link" href="bieu-tong-hop-gia-nong-san.html">Biểu Tổng hợp số liệu giá Nông sản, vật tư nông nghiệp</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <!-- Quản lý hệ thống -->
+                <li class="nav-item">
+                    <a class="nav-link" data-bs-toggle="collapse" href="#qlHeThongSubmenu" role="button" aria-expanded="false" aria-controls="qlHeThongSubmenu">
+                        <i class="fas fa-cogs"></i>
+                        <span>Quản lý hệ thống</span>
+                        <i class="fas fa-caret-down float-end"></i>
+                    </a>
+                    <div class="collapse" id="qlHeThongSubmenu">
+                        <ul class="nav flex-column ms-3">
+                            <li class="nav-item"><a class="nav-link" href="quan-ly-nguoi-dung.html">Quản lý người dùng</a></li>
+                            <li class="nav-item"><a class="nav-link" href="phan-quyen.html">Phân quyền</a></li>
+                            <li class="nav-item"><a class="nav-link" href="cau-hinh-he-thong.html">Cấu hình hệ thống</a></li>
+                            <li class="nav-item"><a class="nav-link" href="nhat-ky-he-thong.html">Nhật ký hệ thống</a></li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Breadcrumb -->
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html">Trang chủ</a></li>
+                    <li class="breadcrumb-item"><a href="#">Quản lý thông tin cung cấp cho người dân</a></li>
+                    <li class="breadcrumb-item active">Dữ liệu các cơ sở vi phạm chất lượng và ATTP</li>
+                </ol>
+            </nav>
+
+            <!-- Filter Section -->
+            <div class="filter-section">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label class="filter-label">Từ ngày - đến ngày:</label>
+                            <div class="input-group">
+                                <input type="date" class="form-control" id="startDate">
+                                <span class="input-group-text">-</span>
+                                <input type="date" class="form-control" id="endDate">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label class="filter-label">Tỉnh thành:</label>
+                            <select class="form-select form-select-sm">
+                                <option value="">Quảng Trị</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label class="filter-label">Quận huyện:</label>
+                            <select class="form-select form-select-sm">
+                                <option value="">--</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label class="filter-label">Xã phường:</label>
+                            <select class="form-select form-select-sm">
+                                <option value="">--</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Content -->
+            <div class="card">
+                <div class="card-header d-flex justify-content-end align-items-center">
+                    <div>
+                        <button class="btn btn-success" id="btnThongKe">
+                            <i class="fas fa-chart-bar"></i> Thống kê
+                        </button>
+                        <button class="btn btn-primary" id="btnXuatExcel">
+                            <i class="fas fa-file-excel"></i> Xuất excel
+                        </button>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-hover">
+                            <thead>
+                                <tr>
+                                    <th>STT</th>
+                                    <th>Mã cơ sở</th>
+                                    <th>Tên cơ sở</th>
+                                    <th>Ngày vi phạm</th>
+                                    <th>Địa chỉ</th>
+                                    <th>Sản phẩm</th>
+                                    <th>Hành vi vi phạm</th>
+                                    <th>Hình thức xử lý</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>CS001</td>
+                                    <td>Công ty TNHH Thủy sản Đông Hà</td>
+                                    <td>15/03/2024</td>
+                                    <td>123 Đường ABC, TP. Đông Hà</td>
+                                    <td>Cá ngừ đóng hộp</td>
+                                    <td>Không đảm bảo điều kiện vệ sinh</td>
+                                    <td>Phạt tiền</td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>CS002</td>
+                                    <td>HTX Nông nghiệp Gio Linh</td>
+                                    <td>20/03/2024</td>
+                                    <td>456 Đường XYZ, Gio Linh</td>
+                                    <td>Rau củ quả</td>
+                                    <td>Sử dụng thuốc bảo vệ thực vật cấm</td>
+                                    <td>Đình chỉ hoạt động</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>CS003</td>
+                                    <td>Công ty TNHH Thực phẩm Minh Anh</td>
+                                    <td>25/03/2024</td>
+                                    <td>789 Đường DEF, TP. Đông Hà</td>
+                                    <td>Thịt lợn</td>
+                                    <td>Không có giấy chứng nhận ATTP</td>
+                                    <td>Phạt tiền</td>
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                    <td>CS004</td>
+                                    <td>HTX Nông nghiệp Vĩnh Linh</td>
+                                    <td>28/03/2024</td>
+                                    <td>321 Đường GHI, Vĩnh Linh</td>
+                                    <td>Gạo</td>
+                                    <td>Không đảm bảo chất lượng</td>
+                                    <td>Cảnh cáo</td>
+                                </tr>
+                                <tr>
+                                    <td>5</td>
+                                    <td>CS005</td>
+                                    <td>Công ty TNHH Chế biến Thủy sản</td>
+                                    <td>01/04/2024</td>
+                                    <td>654 Đường JKL, TP. Đông Hà</td>
+                                    <td>Tôm đông lạnh</td>
+                                    <td>Không đảm bảo nhiệt độ bảo quản</td>
+                                    <td>Phạt tiền</td>
+                                </tr>
+                                <tr>
+                                    <td>6</td>
+                                    <td>CS006</td>
+                                    <td>HTX Nông nghiệp Cam Lộ</td>
+                                    <td>05/04/2024</td>
+                                    <td>987 Đường MNO, Cam Lộ</td>
+                                    <td>Rau xanh</td>
+                                    <td>Sử dụng phân bón không rõ nguồn gốc</td>
+                                    <td>Đình chỉ hoạt động</td>
+                                </tr>
+                                <tr>
+                                    <td>7</td>
+                                    <td>CS007</td>
+                                    <td>Công ty TNHH Thực phẩm An Toàn</td>
+                                    <td>10/04/2024</td>
+                                    <td>147 Đường PQR, TP. Đông Hà</td>
+                                    <td>Thịt gà</td>
+                                    <td>Không có giấy kiểm dịch</td>
+                                    <td>Phạt tiền</td>
+                                </tr>
+                                <tr>
+                                    <td>8</td>
+                                    <td>CS008</td>
+                                    <td>HTX Nông nghiệp Triệu Phong</td>
+                                    <td>15/04/2024</td>
+                                    <td>258 Đường STU, Triệu Phong</td>
+                                    <td>Lúa</td>
+                                    <td>Sử dụng giống không đạt chuẩn</td>
+                                    <td>Cảnh cáo</td>
+                                </tr>
+                                <tr>
+                                    <td>9</td>
+                                    <td>CS009</td>
+                                    <td>Công ty TNHH Chế biến Nông sản</td>
+                                    <td>20/04/2024</td>
+                                    <td>369 Đường VWX, TP. Đông Hà</td>
+                                    <td>Ngô</td>
+                                    <td>Không đảm bảo điều kiện bảo quản</td>
+                                    <td>Phạt tiền</td>
+                                </tr>
+                                <tr>
+                                    <td>10</td>
+                                    <td>CS010</td>
+                                    <td>HTX Nông nghiệp Hải Lăng</td>
+                                    <td>25/04/2024</td>
+                                    <td>741 Đường YZ, Hải Lăng</td>
+                                    <td>Khoai lang</td>
+                                    <td>Sử dụng thuốc bảo quản cấm</td>
+                                    <td>Đình chỉ hoạt động</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Thống kê button click handler
+            $('#btnThongKe').click(function() {
+                // Add your statistics logic here
+                alert('Đang thực hiện thống kê...');
+            });
+
+            // Xuất Excel button click handler
+            $('#btnXuatExcel').click(function() {
+                // Add your export to Excel logic here
+                alert('Đang xuất dữ liệu ra Excel...');
+            });
+        });
+    </script>
+</body>
+</html> 

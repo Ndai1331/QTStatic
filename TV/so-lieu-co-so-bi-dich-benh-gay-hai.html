@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Số liệu các đơn vị, cơ sở bị dịch bệnh gây hại - TTBVTV</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="top-bar-main">
+            <div class="top-bar-left">
+                SỞ NÔNG NGHIỆP & PTNT TỈNH QUẢNG TRỊ<br>
+                HỆ THỐNG CƠ SỞ DỮ LIỆU NÔNG NGHIỆP
+            </div>
+            <div class="top-bar-center">
+                HỆ THỐNG CSDL LĨNH VỰC TRỒNG TRỌT & BẢO VỆ THỰC VẬT
+            </div>
+            <div class="top-bar-right">
+                <div class="user-menu">
+                    <span>QUẢN TRỊ HỆ THỐNG</span>
+                    <i class="fas fa-user-circle"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="wrapper">
+        <!-- Sidebar -->
+        <nav class="sidebar">
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                    <a class="nav-link" href="dashboard.html">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="so-lieu-co-so-bi-dich-benh-gay-hai.html">
+                        <i class="fas fa-viruses"></i>
+                        <span>Số liệu cơ sở bị dịch bệnh gây hại</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Breadcrumb -->
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html">Trang chủ</a></li>
+                    <li class="breadcrumb-item active">Số liệu các đơn vị, cơ sở bị dịch bệnh gây hại</li>
+                </ol>
+            </nav>
+
+            <!-- Filter Section -->
+            <div class="filter-section mb-3">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label class="filter-label">Tìm kiếm:</label>
+                            <input type="text" class="form-control" placeholder="Nhập để tìm kiếm">
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label class="filter-label">Đơn vị, cơ sở:</label>
+                            <select class="form-select">
+                                <option>--</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label class="filter-label">Thời gian:</label>
+                            <select class="form-select">
+                                <option>dd/mm/yyyy - dd/mm/yyyy</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-3 d-flex align-items-end gap-2">
+                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalThemMoiSoLieuDichBenh">
+                            <i class="fas fa-plus"></i> Thêm mới
+                        </button>
+                        <button class="btn btn-success">
+                            <i class="fas fa-file-excel"></i> Xuất excel
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Content -->
+            <div class="card">
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-hover">
+                            <thead>
+                                <tr>
+                                    <th>STT</th>
+                                    <th>Mức độ ảnh hưởng</th>
+                                    <th>Địa điểm</th>
+                                    <th>Cây trồng</th>
+                                    <th>Sinh vật gây hại</th>
+                                    <th>Tác vụ</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>--</td>
+                                    <td>--</td>
+                                    <td>--</td>
+                                    <td>--</td>
+                                    <td>
+                                        <button class="btn btn-sm btn-warning"><i class="fas fa-edit"></i></button>
+                                        <button class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>--</td>
+                                    <td>--</td>
+                                    <td>--</td>
+                                    <td>--</td>
+                                    <td>
+                                        <button class="btn btn-sm btn-warning"><i class="fas fa-edit"></i></button>
+                                        <button class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- Pagination -->
+                    <div class="pagination-container d-flex align-items-center justify-content-between mt-2">
+                        <nav aria-label="Page navigation">
+                            <ul class="pagination mb-0">
+                                <li class="page-item"><a class="page-link" href="#"><i class="fas fa-angle-double-left"></i></a></li>
+                                <li class="page-item"><a class="page-link" href="#"><i class="fas fa-angle-left"></i></a></li>
+                                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                <li class="page-item"><a class="page-link" href="#"><i class="fas fa-angle-right"></i></a></li>
+                                <li class="page-item"><a class="page-link" href="#"><i class="fas fa-angle-double-right"></i></a></li>
+                            </ul>
+                        </nav>
+                        <div class="items-per-page">
+                            <select class="form-select form-select-sm">
+                                <option value="10">10</option>
+                                <option value="20">20</option>
+                                <option value="50">50</option>
+                            </select>
+                        </div>
+                        <div class="total-items">
+                            Tổng số 2
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Thêm mới Số liệu các đơn vị, cơ sở bị dịch bệnh gây hại -->
+    <div class="modal fade" id="modalThemMoiSoLieuDichBenh" tabindex="-1" aria-labelledby="modalThemMoiSoLieuDichBenhLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <form>
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalThemMoiSoLieuDichBenhLabel">Thêm mới Số liệu các đơn vị, cơ sở bị dịch bệnh gây hại</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container-fluid">
+                            <div class="row mb-2">
+                                <div class="col-md-12">
+                                    <label class="form-label">Tên đơn vị, cơ sở:</label>
+                                    <select class="form-select">
+                                        <option>--</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row mb-2">
+                                <div class="col-md-12">
+                                    <label class="form-label">Địa điểm sản xuất:</label>
+                                    <input type="text" class="form-control" placeholder="--">
+                                </div>
+                            </div>
+                            <div class="row mb-2">
+                                <div class="col-md-3">
+                                    <label class="form-label">Tỉnh thành:</label>
+                                    <input type="text" class="form-control" value="Quảng Trị">
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="form-label">Quận huyện:</label>
+                                    <select class="form-select">
+                                        <option>--</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="form-label">Xã phường:</label>
+                                    <select class="form-select">
+                                        <option>--</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="form-label">Mùa vụ:</label>
+                                    <select class="form-select">
+                                        <option>--</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row mb-2">
+                                <div class="col-md-3">
+                                    <label class="form-label">Thời gian bị bệnh từ:</label>
+                                    <div class="input-group">
+                                        <input type="date" class="form-control">
+                                        <span class="input-group-text bg-success text-white"><i class="fa fa-calendar"></i></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="form-label">Thời gian bị bệnh đến:</label>
+                                    <div class="input-group">
+                                        <input type="date" class="form-control">
+                                        <span class="input-group-text bg-success text-white"><i class="fa fa-calendar"></i></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Nguyên nhân:</label>
+                                    <input type="text" class="form-control">
+                                </div>
+                            </div>
+                            <div class="row mb-2">
+                                <div class="col-md-6">
+                                    <label class="form-label">Biện pháp phòng trừ:</label>
+                                    <input type="text" class="form-control">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Mức độ thiệt hại:</label>
+                                    <input type="text" class="form-control">
+                                </div>
+                            </div>
+                            <div class="row mb-2">
+                                <div class="col-md-12">
+                                    <label class="form-label">Hỗ trợ từ cơ quan quản lý:</label>
+                                    <input type="text" class="form-control">
+                                </div>
+                            </div>
+                            <hr>
+                            <b><i>Thông tin chi tiết:</i></b>
+                            <div class="table-responsive mt-2">
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>STT</th>
+                                            <th>Cây trồng</th>
+                                            <th>Sinh vật gây hại</th>
+                                            <th>Diện tích (ha)</th>
+                                            <th>Mức độ ảnh hưởng</th>
+                                            <th>Tác vụ</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>
+                                                <select class="form-select">
+                                                    <option>Chọn cây trồng</option>
+                                                </select>
+                                            </td>
+                                            <td>
+                                                <select class="form-select">
+                                                    <option>Chọn sinh vật</option>
+                                                </select>
+                                            </td>
+                                            <td>
+                                                <input type="text" class="form-control" placeholder="--">
+                                            </td>
+                                            <td>
+                                                <input type="text" class="form-control" placeholder="--">
+                                            </td>
+                                            <td>
+                                                <button class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-success"><i class="fa fa-save"></i> Lưu</button>
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal"><i class="fa fa-times"></i> Hủy</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html> 

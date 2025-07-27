@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Báo cáo thẩm định GCN ATTP - Hệ thống CSDL Quản lý chất lượng nông lâm thủy sản</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="top-bar-main">
+            <div class="top-bar-left">
+                SỞ NÔNG NGHIỆP & PTNT TỈNH QUẢNG TRỊ<br>
+                HỆ THỐNG CƠ SỞ DỮ LIỆU NÔNG NGHIỆP
+            </div>
+            <div class="top-bar-center">
+                HỆ THỐNG CSDL QUẢN LÝ CHẤT LƯỢNG NÔNG LÂM THỦY SẢN
+            </div>
+            <div class="top-bar-right">
+                <div class="user-menu">
+                    <span>QUẢN TRỊ HỆ THỐNG</span>
+                    <i class="fas fa-user-circle"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="wrapper">
+        <!-- Sidebar -->
+        <nav class="sidebar">
+            <ul class="nav flex-column">
+                <!-- Dashboard thông tin -->
+                <li class="nav-item">
+                    <a class="nav-link" data-bs-toggle="collapse" href="#dashboardSubmenu" role="button" aria-expanded="false" aria-controls="dashboardSubmenu">
+                        <i class="fas fa-tachometer-alt"></i>
+                        <span>Dashboard thông tin</span>
+                        <i class="fas fa-caret-down float-end"></i>
+                    </a>
+                    <div class="collapse" id="dashboardSubmenu">
+                        <ul class="nav flex-column ms-3">
+                            <li class="nav-item"><a class="nav-link" href="bao-cao-thong-ke-tong-hop.html">Số liệu thống kê tổng hợp</a></li>
+                            <li class="nav-item"><a class="nav-link" href="dashboard.html">Biểu đồ tổng hợp</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <!-- Quản lý Cơ sở chế biến nông lâm thủy sản -->
+                <li class="nav-item">
+                    <a class="nav-link" data-bs-toggle="collapse" href="#qlCoSoCheBienSubmenu" role="button" aria-expanded="false" aria-controls="qlCoSoCheBienSubmenu">
+                        <i class="fas fa-industry"></i>
+                        <span>Quản lý Cơ sở chế biến nông lâm thủy sản</span>
+                        <i class="fas fa-caret-down float-end"></i>
+                    </a>
+                    <div class="collapse" id="qlCoSoCheBienSubmenu">
+                        <ul class="nav flex-column ms-3">
+                            <li class="nav-item"><a class="nav-link" href="danh-muc-loai-hinh-co-so.html">Danh mục loại hình cơ sở</a></li>
+                            <li class="nav-item"><a class="nav-link" href="danh-muc-nguyen-lieu-che-bien.html">Danh mục nguyên liệu chế biến</a></li>
+                            <li class="nav-item"><a class="nav-link" href="co-so-che-bien.html">Dữ liệu các cơ sở chế biến NLTS</a></li>
+                            <li class="nav-item"><a class="nav-link" href="pham-vi-kinh-doanh.html">Dữ liệu địa bàn, phạm vi sản xuất kinh doanh</a></li>
+                            <li class="nav-item"><a class="nav-link" href="hoat-dong-kinh-doanh.html">Dữ liệu tình hình sản xuất kinh doanh</a></li>
+                            <li class="nav-item"><a class="nav-link" href="bao-cao-thong-ke-doanh-nghiep.html">Báo cáo thống kê</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <!-- Quản lý ATTP, vi phạm chất lượng và ATTP -->
+                <li class="nav-item">
+                    <a class="nav-link" data-bs-toggle="collapse" href="#qlATTPSubmenu" role="button" aria-expanded="false" aria-controls="qlATTPSubmenu">
+                        <i class="fas fa-warehouse"></i>
+                        <span>Quản lý ATTP, vi phạm chất lượng và ATTP</span>
+                        <i class="fas fa-caret-down float-end"></i>
+                    </a>
+                    <div class="collapse" id="qlATTPSubmenu">
+                        <ul class="nav flex-column ms-3">
+                            <li class="nav-item"><a class="nav-link" href="danh-muc-loai-hinh-kinh-doanh.html">Danh mục loại hình kinh doanh</a></li>
+                            <li class="nav-item"><a class="nav-link" href="danh-muc-loai-san-pham.html">Danh mục loại sản phẩm</a></li>
+                            <li class="nav-item"><a class="nav-link" href="danh-muc-san-pham.html">Danh mục sản phẩm</a></li>
+                            <li class="nav-item"><a class="nav-link" href="co-so-du-dieu-kien.html">Dữ liệu các cơ sở sản xuất, kinh doanh NLTS đủ điều kiện</a></li>
+                            <li class="nav-item"><a class="nav-link" href="co-so-khong-gcn.html">Dữ liệu các cơ sở sản xuất, kinh doanh NLTS không thuộc diện cấp GCN ATTP</a></li>
+                            <li class="nav-item"><a class="nav-link" href="dieu-tra-kiem-ke.html">Dữ liệu các cơ sở kiểm tra, hậu kiểm chất lượng, ATTP</a></li>
+                            <li class="nav-item"><a class="nav-link" href="co-so-vi-pham.html">Dữ liệu các cơ sở vi phạm</a></li>
+                            <li class="nav-item"><a class="nav-link" href="chung-nhan-het-han.html">Dữ liệu về các cơ sở, chứng nhận hết hạn</a></li>
+                            <li class="nav-item"><a class="nav-link" href="bao-cao-thong-ke-tong-hop.html">Báo cáo thống kê</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <!-- Quản lý báo cáo định kỳ -->
+                <li class="nav-item">
+                    <a class="nav-link" data-bs-toggle="collapse" href="#qlBaoCaoDinhKySubmenu" role="button" aria-expanded="false" aria-controls="qlBaoCaoDinhKySubmenu">
+                        <i class="fas fa-file-alt"></i>
+                        <span>Quản lý báo cáo định kỳ</span>
+                        <i class="fas fa-caret-down float-end"></i>
+                    </a>
+                    <div class="collapse" id="qlBaoCaoDinhKySubmenu">
+                        <ul class="nav flex-column ms-3">
+                            <li class="nav-item"><a class="nav-link" href="bao-cao-kiem-tra-hau-kiem-attp.html">Báo cáo dữ liệu về kiểm tra, hậu kiểm ATTP</a></li>
+                            <li class="nav-item"><a class="nav-link" href="bao-cao-du-lieu-lay-mau-hau-kiem-giam-sat-attp.html">Báo cáo dữ liệu lấy mẫu hậu kiểm, giám sát ATTP</a></li>
+                            <li class="nav-item"><a class="nav-link" href="bao-cao-tham-dinh-gcn-attp.html">Báo cáo dữ liệu thẩm định cấp giấy chứng nhận đảm bảo an toàn thực phẩm</a></li>
+                            <li class="nav-item"><a class="nav-link" href="bao-cao-tuyen-truyen-attp.html">Báo cáo dữ liệu công tác tuyên truyền đảm bảo ATTP</a></li>
+                            <li class="nav-item"><a class="nav-link" href="bao-cao-ho-tro-xuc-tien-thuong-mai.html">Báo cáo dữ liệu hỗ trợ xúc tiến thương mại</a></li>
+                            <li class="nav-item"><a class="nav-link" href="bao-cao-vi-pham-linh-vuc.html">Báo cáo dữ liệu vi phạm</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <!-- Quản lý thông tin cung cấp cho người dân -->
+                <li class="nav-item">
+                    <a class="nav-link" data-bs-toggle="collapse" href="#qlThongTinCungCapSubmenu" role="button" aria-expanded="false" aria-controls="qlThongTinCungCapSubmenu">
+                        <i class="fas fa-info-circle"></i>
+                        <span>Quản lý thông tin cung cấp cho người dân</span>
+                        <i class="fas fa-caret-down float-end"></i>
+                    </a>
+                    <div class="collapse" id="qlThongTinCungCapSubmenu">
+                        <ul class="nav flex-column ms-3">
+                            <li class="nav-item"><a class="nav-link" href="co-so-vi-pham-chat-luong.html">Dữ liệu các cơ sở vi phạm chất lượng và ATTP</a></li>
+                            <li class="nav-item"><a class="nav-link" href="co-so-hop-chuan-hop-quy.html">Dữ liệu các cơ sở đã được chứng nhận về ATTP còn hiệu lực</a></li>
+                            <li class="nav-item"><a class="nav-link" href="chuoi-cung-ung.html">Dữ liệu các chuỗi cung ứng thực phẩm an toàn</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <!-- Quảng bá, xúc tiến thương mại -->
+                <li class="nav-item">
+                    <a class="nav-link" data-bs-toggle="collapse" href="#quangBaSubmenu" role="button" aria-expanded="false" aria-controls="quangBaSubmenu">
+                        <i class="fas fa-bullhorn"></i>
+                        <span>Quảng bá, xúc tiến thương mại</span>
+                        <i class="fas fa-caret-down float-end"></i>
+                    </a>
+                    <div class="collapse" id="quangBaSubmenu">
+                        <ul class="nav flex-column ms-3">
+                            <li class="nav-item"><a class="nav-link" href="kenh-quang-ba.html">DL các kênh quảng bá xúc tiến thương mại</a></li>
+                            <li class="nav-item"><a class="nav-link" href="phat-trien-thi-truong.html">DL Tình hình phát triển thị trường</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <!-- CSDL về các văn bản quy phạm pháp luật liên quan -->
+                <li class="nav-item">
+                    <a class="nav-link" data-bs-toggle="collapse" href="#vbqpplSubmenu" role="button" aria-expanded="false" aria-controls="vbqpplSubmenu">
+                        <i class="fas fa-book"></i>
+                        <span>CSDL về các văn bản quy phạm pháp luật liên quan</span>
+                        <i class="fas fa-caret-down float-end"></i>
+                    </a>
+                    <div class="collapse" id="vbqpplSubmenu">
+                        <ul class="nav flex-column ms-3">
+                            <li class="nav-item"><a class="nav-link" href="danh-muc-vbqppl.html">Danh mục VBQPPL</a></li>
+                            <li class="nav-item"><a class="nav-link" href="danh-muc-linh-vuc.html">Danh mục lĩnh vực</a></li>
+                            <li class="nav-item"><a class="nav-link" href="danh-muc-thu-muc-vbqppl.html">Thư mục văn bản</a></li>
+                            <li class="nav-item"><a class="nav-link" href="tim-kiem-vbqppl-noi-dung.html">Tìm kiếm VBQPPL theo nội dung</a></li>
+                            <li class="nav-item"><a class="nav-link" href="tim-kiem-vbqppl-cqbh.html">Tìm kiếm VBQPPL theo CQBH</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <!-- Giá cả thị trường vật tư nông nghiệp -->
+                <li class="nav-item">
+                    <a class="nav-link" data-bs-toggle="collapse" href="#giaCaSubmenu" role="button" aria-expanded="false" aria-controls="giaCaSubmenu">
+                        <i class="fas fa-coins"></i>
+                        <span>Giá cả thị trường vật tư nông nghiệp</span>
+                        <i class="fas fa-caret-down float-end"></i>
+                    </a>
+                    <div class="collapse" id="giaCaSubmenu">
+                        <ul class="nav flex-column ms-3">
+                            <li class="nav-item"><a class="nav-link" href="gia-ca-san-pham-nong-san.html">Giá cả sản phẩm nông sản</a></li>
+                            <li class="nav-item"><a class="nav-link" href="danh-muc-loai-vat-tu-nong-nghiep.html">Danh mục loại vật tư nông nghiệp</a></li>
+                            <li class="nav-item"><a class="nav-link" href="danh-muc-vat-tu-nong-nghiep.html">Danh mục vật tư nông nghiệp</a></li>
+                            <li class="nav-item"><a class="nav-link" href="gia-ca-vat-tu-nong-nghiep.html">Giá cả vật tư nông nghiệp</a></li>
+                            <li class="nav-item"><a class="nav-link" href="bieu-tong-hop-gia-nong-san.html">Biểu Tổng hợp số liệu giá Nông sản, vật tư nông nghiệp</a></li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Breadcrumb -->
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html">Trang chủ</a></li>
+                    <li class="breadcrumb-item"><a href="#">Quản lý báo cáo định kỳ</a></li>
+                    <li class="breadcrumb-item active">Báo cáo dữ liệu thẩm định cấp giấy chứng nhận đảm bảo an toàn thực phẩm</li>
+                </ol>
+            </nav>
+
+            <!-- Filter Section -->
+            <div class="filter-section">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label class="filter-label">Từ ngày - Đến ngày:</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control" id="dateRange" placeholder="Chọn khoảng thời gian">
+                                <span class="input-group-text"><i class="fas fa-calendar"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label class="filter-label">Tỉnh thành:</label>
+                            <select class="form-select">
+                                <option value="">Quảng Trị</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label class="filter-label">Xã phường:</label>
+                            <select class="form-select">
+                                <option value="">--</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label class="filter-label">Tên sản phẩm:</label>
+                            <select class="form-select">
+                                <option value="">--</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label class="filter-label">Tìm kiếm:</label>
+                            <input type="text" class="form-control" placeholder="Nhập để tìm kiếm">
+                        </div>
+                    </div>
+                    <div class="col-md-1">
+                        <div class="form-group">
+                            <label class="filter-label">&nbsp;</label>
+                            <button class="btn btn-primary w-100" id="btnThongKe">
+                                <i class="fas fa-search"></i> Thống kê
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Content -->
+            <div class="card">
+                <div class="card-header d-flex justify-content-end align-items-center">
+                    <div class="d-flex gap-2">
+                        <button class="btn btn-success" id="btnXuatExcel">
+                            <i class="fas fa-file-excel"></i> Xuất excel
+                        </button>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-hover">
+                            <thead>
+                                <tr>
+                                    <th>STT</th>
+                                    <th class="text-end">Số cơ sở được thẩm định</th>
+                                    <th class="text-end">Số cơ sở đạt</th>
+                                    <th class="text-end">Số lượng cơ sở không đạt</th>
+                                    <th class="text-end">Số cơ sở được cấp GCN</th>
+                                    <th class="text-end">Tỷ lệ cấp GCN</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td class="text-end">100</td>
+                                    <td class="text-end">85</td>
+                                    <td class="text-end">15</td>
+                                    <td class="text-end">80</td>
+                                    <td class="text-end">80%</td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td class="text-end">150</td>
+                                    <td class="text-end">120</td>
+                                    <td class="text-end">30</td>
+                                    <td class="text-end">115</td>
+                                    <td class="text-end">76.7%</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td class="text-end">80</td>
+                                    <td class="text-end">65</td>
+                                    <td class="text-end">15</td>
+                                    <td class="text-end">60</td>
+                                    <td class="text-end">75%</td>
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                    <td class="text-end">200</td>
+                                    <td class="text-end">160</td>
+                                    <td class="text-end">40</td>
+                                    <td class="text-end">150</td>
+                                    <td class="text-end">75%</td>
+                                </tr>
+                                <tr>
+                                    <td>5</td>
+                                    <td class="text-end">120</td>
+                                    <td class="text-end">95</td>
+                                    <td class="text-end">25</td>
+                                    <td class="text-end">90</td>
+                                    <td class="text-end">75%</td>
+                                </tr>
+                                <tr>
+                                    <td>6</td>
+                                    <td class="text-end">90</td>
+                                    <td class="text-end">75</td>
+                                    <td class="text-end">15</td>
+                                    <td class="text-end">70</td>
+                                    <td class="text-end">77.8%</td>
+                                </tr>
+                                <tr>
+                                    <td>7</td>
+                                    <td class="text-end">180</td>
+                                    <td class="text-end">145</td>
+                                    <td class="text-end">35</td>
+                                    <td class="text-end">140</td>
+                                    <td class="text-end">77.8%</td>
+                                </tr>
+                                <tr>
+                                    <td>8</td>
+                                    <td class="text-end">110</td>
+                                    <td class="text-end">85</td>
+                                    <td class="text-end">25</td>
+                                    <td class="text-end">80</td>
+                                    <td class="text-end">72.7%</td>
+                                </tr>
+                                <tr>
+                                    <td>9</td>
+                                    <td class="text-end">160</td>
+                                    <td class="text-end">130</td>
+                                    <td class="text-end">30</td>
+                                    <td class="text-end">125</td>
+                                    <td class="text-end">78.1%</td>
+                                </tr>
+                                <tr>
+                                    <td>10</td>
+                                    <td class="text-end">140</td>
+                                    <td class="text-end">110</td>
+                                    <td class="text-end">30</td>
+                                    <td class="text-end">105</td>
+                                    <td class="text-end">75%</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <!-- Pagination -->
+                    <div class="pagination-container">
+                        <nav aria-label="Page navigation">
+                            <ul class="pagination">
+                                <li class="page-item">
+                                    <a class="page-link" href="#" aria-label="First">
+                                        <i class="fas fa-angle-double-left"></i>
+                                    </a>
+                                </li>
+                                <li class="page-item">
+                                    <a class="page-link" href="#" aria-label="Previous">
+                                        <i class="fas fa-angle-left"></i>
+                                    </a>
+                                </li>
+                                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                <li class="page-item">
+                                    <a class="page-link" href="#" aria-label="Next">
+                                        <i class="fas fa-angle-right"></i>
+                                    </a>
+                                </li>
+                                <li class="page-item">
+                                    <a class="page-link" href="#" aria-label="Last">
+                                        <i class="fas fa-angle-double-right"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                        <div class="items-per-page">
+                            <select class="form-select form-select-sm">
+                                <option value="10">10</option>
+                                <option value="20">20</option>
+                                <option value="50">50</option>
+                            </select>
+                        </div>
+                        <div class="total-items">
+                            Tổng số: 10
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+    <script src="script.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize date range picker
+            $('#dateRange').daterangepicker({
+                opens: 'left',
+                locale: {
+                    format: 'DD/MM/YYYY',
+                    separator: ' - ',
+                    applyLabel: 'Chọn',
+                    cancelLabel: 'Hủy',
+                    fromLabel: 'Từ',
+                    toLabel: 'Đến',
+                    customRangeLabel: 'Tùy chọn',
+                    daysOfWeek: ['CN', 'T2', 'T3', 'T4', 'T5', 'T6', 'T7'],
+                    monthNames: ['Tháng 1', 'Tháng 2', 'Tháng 3', 'Tháng 4', 'Tháng 5', 'Tháng 6', 'Tháng 7', 'Tháng 8', 'Tháng 9', 'Tháng 10', 'Tháng 11', 'Tháng 12'],
+                    firstDay: 1
+                }
+            });
+
+            // Xử lý sự kiện click nút Thống kê
+            document.getElementById('btnThongKe').addEventListener('click', function() {
+                // TODO: Xử lý thống kê dữ liệu
+                alert('Đang thực hiện thống kê dữ liệu...');
+            });
+
+            // Xử lý sự kiện click nút Xuất excel
+            document.getElementById('btnXuatExcel').addEventListener('click', function() {
+                // TODO: Xử lý xuất excel
+                alert('Đang xuất dữ liệu ra file Excel...');
+            });
+        });
+    </script>
+</body>
+</html> 

@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tình hình phát triển thị trường - QLCL NLTS</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="top-bar-main">
+            <div class="top-bar-left">
+                SỞ NÔNG NGHIỆP & PTNT TỈNH QUẢNG TRỊ<br>
+                HỆ THỐNG CƠ SỞ DỮ LIỆU NÔNG NGHIỆP
+            </div>
+            <div class="top-bar-center">
+                HỆ THỐNG CSDL QUẢN LÝ CHẤT LƯỢNG NÔNG LÂM THỦY SẢN
+            </div>
+            <div class="top-bar-right">
+                <div class="user-menu">
+                    <span>QUẢN TRỊ HỆ THỐNG</span>
+                    <i class="fas fa-user-circle"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="wrapper">
+        <!-- Sidebar -->
+        <nav class="sidebar">
+            <ul class="nav flex-column">
+                <!-- Dashboard -->
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">
+                        <i class="fas fa-tachometer-alt"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <!-- Quản lý Cơ sở chế biến nông lâm thủy sản -->
+                <li class="nav-item">
+                    <a class="nav-link" data-bs-toggle="collapse" href="#qlDoanhNghiepSubmenu" role="button" aria-expanded="false" aria-controls="qlDoanhNghiepSubmenu">
+                        <i class="fas fa-briefcase"></i>
+                        <span>Quản lý Cơ sở chế biến nông lâm thủy sản</span>
+                        <i class="fas fa-caret-down float-end"></i>
+                    </a>
+                    <div class="collapse" id="qlDoanhNghiepSubmenu">
+                        <ul class="nav flex-column ms-3">
+                            <li class="nav-item"><a class="nav-link" href="co-so-che-bien.html">DL các doanh nghiệp sản xuất kinh doanh</a></li>
+                            <li class="nav-item"><a class="nav-link" href="pham-vi-kinh-doanh.html">DL địa bàn, phạm vi sản xuất kinh doanh</a></li>
+                            <li class="nav-item"><a class="nav-link" href="hoat-dong-kinh-doanh.html">DL Tình hình hoạt động kinh doanh</a></li>
+                            <li class="nav-item"><a class="nav-link" href="bao-cao-thong-ke-doanh-nghiep.html">Báo cáo thống kê</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <!-- Quản lý các cơ sở quản lý chất lượng tiên tiến -->
+                <li class="nav-item">
+                    <a class="nav-link" data-bs-toggle="collapse" href="#qlCoSoQuanLySubmenu" role="button" aria-expanded="false" aria-controls="qlCoSoQuanLySubmenu">
+                        <i class="fas fa-warehouse"></i>
+                        <span>Quản lý ATTP, vi phạm chất lượng và ATTP</span>
+                        <i class="fas fa-caret-down float-end"></i>
+                    </a>
+                    <div class="collapse" id="qlCoSoQuanLySubmenu">
+                        <ul class="nav flex-column ms-3">
+                            <li class="nav-item"><a class="nav-link" href="co-so-du-dieu-kien.html">DL các cơ sở đạt chứng nhận quản lý chất lượng, hợp chuẩn hợp quy.</a></li>
+                            <li class="nav-item"><a class="nav-link" href="dieu-tra-kiem-ke.html">DL về các đợt điều tra, kiểm kê đánh giá</a></li>
+                            <li class="nav-item"><a class="nav-link" href="co-so-vi-pham.html">DL về vi phạm quản lý chất lượng</a></li>
+                            <li class="nav-item"><a class="nav-link" href="chung-nhan-het-han.html">DL về các cơ sở, chứng nhận hết hạn</a></li>
+                            <li class="nav-item"><a class="nav-link" href="bao-cao-thong-ke-tong-hop.html"><i class="fas fa-chart-bar"></i> Báo cáo thống kê tổng hợp</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <!-- Quản lý báo cáo định kỳ -->
+                <li class="nav-item">
+                    <a class="nav-link" data-bs-toggle="collapse" href="#qlBaoCaoDinhKySubmenu" role="button" aria-expanded="false" aria-controls="qlBaoCaoDinhKySubmenu">
+                        <i class="fas fa-file-alt"></i>
+                        <span>Quản lý báo cáo định kỳ</span>
+                        <i class="fas fa-caret-down float-end"></i>
+                    </a>
+                    <div class="collapse" id="qlBaoCaoDinhKySubmenu">
+                        <ul class="nav flex-column ms-3">
+                            <li class="nav-item"><a class="nav-link" href="bao-cao-dinh-ky-co-so.html">DL thống kê báo cáo định kỳ các cơ sở</a></li>
+                            <li class="nav-item"><a class="nav-link" href="bao-cao-phan-loai-vat-tu-nong-nghiep.html">Báo cáo các phân loại điều kiện đảm bảo chất lượng các cơ sở sản xuất kinh doanh vật tư nông nghiệp</a></li>
+                            <li class="nav-item"><a class="nav-link" href="bao-cao-phan-loai-nong-lam-san-muoi.html">Báo cáo các phân loại điều kiện đảm bảo chất lượng an toàn thực phẩm các sản phẩm nông lâm sản, muối</a></li>
+                            <li class="nav-item"><a class="nav-link" href="bao-cao-vi-pham-linh-vuc.html">DL báo cáo vi phạm trong lĩnh vực</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <!-- Quản lý thông tin cung cấp -->
+                <li class="nav-item">
+                    <a class="nav-link" data-bs-toggle="collapse" href="#qlThongTinCungCapSubmenu" role="button" aria-expanded="false" aria-controls="qlThongTinCungCapSubmenu">
+                        <i class="fas fa-info-circle"></i>
+                        <span>Quản lý thông tin cung cấp cho người dân</span>
+                        <i class="fas fa-caret-down float-end"></i>
+                    </a>
+                    <div class="collapse" id="qlThongTinCungCapSubmenu">
+                        <ul class="nav flex-column ms-3">
+                            <li class="nav-item"><a class="nav-link" href="co-so-vat-tu-nong-nghiep.html">DL các cơ sở sản xuất, kinh doanh vật tư nông nghiệp</a></li>
+                            <li class="nav-item"><a class="nav-link" href="co-so-hop-chuan-hop-quy.html">DL các cơ sở sản xuất kinh doanh chế biến hợp chuẩn hợp quy</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <!-- Quảng bá, xúc tiến thương mại -->
+                <li class="nav-item">
+                    <a class="nav-link" data-bs-toggle="collapse" href="#quangBaSubmenu" role="button" aria-expanded="false" aria-controls="quangBaSubmenu">
+                        <i class="fas fa-bullhorn"></i>
+                        <span>Quảng bá, xúc tiến thương mại</span>
+                        <i class="fas fa-caret-down float-end"></i>
+                    </a>
+                    <div class="collapse" id="quangBaSubmenu">
+                        <ul class="nav flex-column ms-3">
+                            <li class="nav-item"><a class="nav-link" href="kenh-quang-ba.html">DL các kênh quảng bá xúc tiến thương mại</a></li>
+                            <li class="nav-item"><a class="nav-link" href="phat-trien-thi-truong.html">DL Tình hình phát triển thị trường</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <!-- CSDL về các văn bản quy phạm -->
+                <li class="nav-item">
+                    <a class="nav-link" data-bs-toggle="collapse" href="#vbqpplSubmenu" role="button" aria-expanded="false" aria-controls="vbqpplSubmenu">
+                        <i class="fas fa-book"></i>
+                        <span>CSDL về các văn bản quy phạm</span>
+                        <i class="fas fa-caret-down float-end"></i>
+                    </a>
+                    <div class="collapse" id="vbqpplSubmenu">
+                        <ul class="nav flex-column ms-3">
+                            <li class="nav-item"><a class="nav-link" href="danh-muc-vbqppl.html">Danh mục VBQPPL</a></li>
+                            <li class="nav-item"><a class="nav-link" href="danh-muc-linh-vuc.html">Danh mục lĩnh vực</a></li>
+                            <li class="nav-item"><a class="nav-link" href="tim-kiem-vbqppl-noi-dung.html">Tìm kiếm VBQPPL theo nội dung</a></li>
+                            <li class="nav-item"><a class="nav-link" href="tim-kiem-vbqppl-cqbh.html">Tìm kiếm VBQPPL theo CQBH</a></li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Breadcrumb -->
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html">Trang chủ</a></li>
+                    <li class="breadcrumb-item"><a href="#">Quảng bá, xúc tiến thương mại</a></li>
+                    <li class="breadcrumb-item active">Dữ liệu tình hình phát triển thị trường</li>
+                </ol>
+            </nav>
+
+            <!-- Filter Section -->
+            <div class="filter-section">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label class="filter-label">Tìm kiếm:</label>
+                            <input type="text" class="form-control" placeholder="Nhập để tìm kiếm">
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label class="filter-label">Tỉnh thành:</label>
+                            <select class="form-select">
+                                <option value="">Quảng Trị</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label class="filter-label">Quận huyện:</label>
+                            <select class="form-select">
+                                <option value="">--</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label class="filter-label">Xã phường:</label>
+                            <select class="form-select">
+                                <option value="">--</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Content -->
+            <div class="card">
+                <div class="card-header d-flex justify-content-end align-items-center">
+                    <!--<h5 class="mb-0">Dữ liệu tình hình phát triển thị trường</h5>-->
+                    <div class="d-flex gap-2">
+                        <button class="btn btn-primary" id="btnThemMoi">
+                            <i class="fas fa-plus"></i> Thêm mới
+                        </button>
+                        <button class="btn btn-success" id="btnXuatExcel">
+                            <i class="fas fa-file-excel"></i> Xuất excel
+                        </button>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-hover">
+                            <thead>
+                                <tr>
+                                    <th>STT</th>
+                                    <th>Mã doanh nghiệp</th>
+                                    <th>Tên doanh nghiệp</th>
+                                    <th>Địa chỉ</th>
+                                    <th>Tỉnh thành</th>
+                                    <th>Quận huyện</th>
+                                    <th>Xã phường</th>
+                                    <th>Mã số thuế</th>
+                                    <th>Số GPĐK KD</th>
+                                    <th>Ngày cấp</th>
+                                    <th>Cơ quan cấp</th>
+                                    <th>Hình thức bán hàng</th>
+                                    <th>Thị trường</th>
+                                    <th>Quy mô</th>
+                                    <th>Doanh thu dự kiến (VNĐ)</th>
+                                    <th>Trạng thái</th>
+                                    <th>Sản phẩm</th>
+                                    <th>Tác vụ</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>DN001</td>
+                                    <td>Công ty TNHH Nông Sản Xanh</td>
+                                    <td>123 Lê Lợi</td>
+                                    <td>Quảng Trị</td>
+                                    <td>Đông Hà</td>
+                                    <td>Phường 1</td>
+                                    <td>3200123456</td>
+                                    <td>123456789</td>
+                                    <td>2020-01-15</td>
+                                    <td>Sở KHĐT Quảng Trị</td>
+                                    <td>Truyền thống</td>
+                                    <td>Trong nước</td>
+                                    <td>Vừa</td>
+                                    <td>5,000,000,000</td>
+                                    <td>Đang hoạt động</td>
+                                    <td>Gạo, Cà phê</td>
+                                    <td>
+                                        <button class="btn btn-sm btn-warning"><i class="fas fa-edit"></i></button>
+                                        <button class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>DN002</td>
+                                    <td>HTX Rau Sạch Quảng Trị</td>
+                                    <td>45 Trần Hưng Đạo</td>
+                                    <td>Quảng Trị</td>
+                                    <td>Quảng Trị</td>
+                                    <td>Phường An Đôn</td>
+                                    <td>3200654321</td>
+                                    <td>987654321</td>
+                                    <td>2019-05-20</td>
+                                    <td>UBND Tỉnh Quảng Trị</td>
+                                    <td>Thương mại điện tử</td>
+                                    <td>Xuất khẩu</td>
+                                    <td>Nhỏ</td>
+                                    <td>1,200,000,000</td>
+                                    <td>Đang hoạt động</td>
+                                    <td>Rau củ, Trái cây</td>
+                                    <td>
+                                        <button class="btn btn-sm btn-warning"><i class="fas fa-edit"></i></button>
+                                        <button class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>DN003</td>
+                                    <td>Công ty CP Thủy Sản QT</td>
+                                    <td>12 Nguyễn Huệ</td>
+                                    <td>Quảng Trị</td>
+                                    <td>Vĩnh Linh</td>
+                                    <td>Xã Vĩnh Thái</td>
+                                    <td>3200987654</td>
+                                    <td>112233445</td>
+                                    <td>2021-03-10</td>
+                                    <td>Sở KHĐT Quảng Trị</td>
+                                    <td>Truyền thống</td>
+                                    <td>Xuất khẩu</td>
+                                    <td>Lớn</td>
+                                    <td>20,000,000,000</td>
+                                    <td>Đang hoạt động</td>
+                                    <td>Thủy sản</td>
+                                    <td>
+                                        <button class="btn btn-sm btn-warning"><i class="fas fa-edit"></i></button>
+                                        <button class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                    <td>DN004</td>
+                                    <td>HTX Hồ Tiêu Gio Linh</td>
+                                    <td>88 Lý Thường Kiệt</td>
+                                    <td>Quảng Trị</td>
+                                    <td>Gio Linh</td>
+                                    <td>Xã Gio An</td>
+                                    <td>3200234567</td>
+                                    <td>223344556</td>
+                                    <td>2018-07-12</td>
+                                    <td>UBND Huyện Gio Linh</td>
+                                    <td>Thương mại điện tử</td>
+                                    <td>Trong nước</td>
+                                    <td>Nhỏ</td>
+                                    <td>800,000,000</td>
+                                    <td>Đang hoạt động</td>
+                                    <td>Hồ tiêu</td>
+                                    <td>
+                                        <button class="btn btn-sm btn-warning"><i class="fas fa-edit"></i></button>
+                                        <button class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>5</td>
+                                    <td>DN005</td>
+                                    <td>Công ty TNHH Cao Su QT</td>
+                                    <td>56 Nguyễn Trãi</td>
+                                    <td>Quảng Trị</td>
+                                    <td>Cam Lộ</td>
+                                    <td>Xã Cam Tuyền</td>
+                                    <td>3200345678</td>
+                                    <td>334455667</td>
+                                    <td>2022-02-28</td>
+                                    <td>Sở KHĐT Quảng Trị</td>
+                                    <td>Truyền thống</td>
+                                    <td>Trong nước</td>
+                                    <td>Vừa</td>
+                                    <td>3,500,000,000</td>
+                                    <td>Đang hoạt động</td>
+                                    <td>Cao su</td>
+                                    <td>
+                                        <button class="btn btn-sm btn-warning"><i class="fas fa-edit"></i></button>
+                                        <button class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>6</td>
+                                    <td>DN006</td>
+                                    <td>HTX Sắn Hải Lăng</td>
+                                    <td>77 Hùng Vương</td>
+                                    <td>Quảng Trị</td>
+                                    <td>Hải Lăng</td>
+                                    <td>Xã Hải Thượng</td>
+                                    <td>3200456789</td>
+                                    <td>445566778</td>
+                                    <td>2017-11-05</td>
+                                    <td>UBND Huyện Hải Lăng</td>
+                                    <td>Thương mại điện tử</td>
+                                    <td>Xuất khẩu</td>
+                                    <td>Nhỏ</td>
+                                    <td>1,000,000,000</td>
+                                    <td>Ngừng hoạt động</td>
+                                    <td>Sắn</td>
+                                    <td>
+                                        <button class="btn btn-sm btn-warning"><i class="fas fa-edit"></i></button>
+                                        <button class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>7</td>
+                                    <td>DN007</td>
+                                    <td>Công ty CP Rau Quả QT</td>
+                                    <td>99 Phan Đình Phùng</td>
+                                    <td>Quảng Trị</td>
+                                    <td>Triệu Phong</td>
+                                    <td>Xã Triệu Đông</td>
+                                    <td>3200567890</td>
+                                    <td>556677889</td>
+                                    <td>2020-09-18</td>
+                                    <td>Sở KHĐT Quảng Trị</td>
+                                    <td>Truyền thống</td>
+                                    <td>Trong nước</td>
+                                    <td>Vừa</td>
+                                    <td>2,800,000,000</td>
+                                    <td>Đang hoạt động</td>
+                                    <td>Rau củ, Trái cây</td>
+                                    <td>
+                                        <button class="btn btn-sm btn-warning"><i class="fas fa-edit"></i></button>
+                                        <button class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>8</td>
+                                    <td>DN008</td>
+                                    <td>HTX Thủy Sản Cồn Cỏ</td>
+                                    <td>22 Lê Duẩn</td>
+                                    <td>Quảng Trị</td>
+                                    <td>Cồn Cỏ</td>
+                                    <td>Xã Cồn Cỏ</td>
+                                    <td>3200678901</td>
+                                    <td>667788990</td>
+                                    <td>2016-06-30</td>
+                                    <td>UBND Huyện Cồn Cỏ</td>
+                                    <td>Thương mại điện tử</td>
+                                    <td>Xuất khẩu</td>
+                                    <td>Nhỏ</td>
+                                    <td>900,000,000</td>
+                                    <td>Đang hoạt động</td>
+                                    <td>Thủy sản</td>
+                                    <td>
+                                        <button class="btn btn-sm btn-warning"><i class="fas fa-edit"></i></button>
+                                        <button class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>9</td>
+                                    <td>DN009</td>
+                                    <td>Công ty TNHH Hồ Tiêu QT</td>
+                                    <td>33 Nguyễn Du</td>
+                                    <td>Quảng Trị</td>
+                                    <td>Gio Linh</td>
+                                    <td>Xã Gio Châu</td>
+                                    <td>3200789012</td>
+                                    <td>778899001</td>
+                                    <td>2015-04-22</td>
+                                    <td>UBND Huyện Gio Linh</td>
+                                    <td>Truyền thống</td>
+                                    <td>Trong nước</td>
+                                    <td>Lớn</td>
+                                    <td>7,000,000,000</td>
+                                    <td>Ngừng hoạt động</td>
+                                    <td>Hồ tiêu</td>
+                                    <td>
+                                        <button class="btn btn-sm btn-warning"><i class="fas fa-edit"></i></button>
+                                        <button class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>10</td>
+                                    <td>DN010</td>
+                                    <td>HTX Nông Sản Sạch QT</td>
+                                    <td>66 Lê Quý Đôn</td>
+                                    <td>Quảng Trị</td>
+                                    <td>Đông Hà</td>
+                                    <td>Phường 2</td>
+                                    <td>3200890123</td>
+                                    <td>889900112</td>
+                                    <td>2023-01-05</td>
+                                    <td>Sở KHĐT Quảng Trị</td>
+                                    <td>Thương mại điện tử</td>
+                                    <td>Xuất khẩu</td>
+                                    <td>Vừa</td>
+                                    <td>4,200,000,000</td>
+                                    <td>Đang hoạt động</td>
+                                    <td>Gạo, Rau củ</td>
+                                    <td>
+                                        <button class="btn btn-sm btn-warning"><i class="fas fa-edit"></i></button>
+                                        <button class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <!-- Pagination -->
+                    <div class="pagination-container">
+                        <nav aria-label="Page navigation">
+                            <ul class="pagination">
+                                <li class="page-item">
+                                    <a class="page-link" href="#" aria-label="First">
+                                        <i class="fas fa-angle-double-left"></i>
+                                    </a>
+                                </li>
+                                <li class="page-item">
+                                    <a class="page-link" href="#" aria-label="Previous">
+                                        <i class="fas fa-angle-left"></i>
+                                    </a>
+                                </li>
+                                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                <li class="page-item">
+                                    <a class="page-link" href="#" aria-label="Next">
+                                        <i class="fas fa-angle-right"></i>
+                                    </a>
+                                </li>
+                                <li class="page-item">
+                                    <a class="page-link" href="#" aria-label="Last">
+                                        <i class="fas fa-angle-double-right"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                        <div class="items-per-page">
+                            <select class="form-select form-select-sm">
+                                <option value="10">10</option>
+                                <option value="20">20</option>
+                                <option value="50">50</option>
+                            </select>
+                        </div>
+                        <div class="total-items">
+                            Tổng số: 2
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+
+    <!-- Modal Form -->
+    <div class="modal fade" id="themMoiModal" tabindex="-1" aria-labelledby="themMoiModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="themMoiModalLabel">Thêm mới dữ liệu tình hình phát triển thị trường</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="themMoiForm">
+                        <!-- Thông tin doanh nghiệp -->
+                        <div class="card mb-3">
+                            <div class="card-header">
+                                <h6 class="mb-0">Thông tin doanh nghiệp</h6>
+                            </div>
+                            <div class="card-body">
+                                <div class="row mb-3">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label class="form-label">Mã doanh nghiệp <span class="text-danger">*</span></label>
+                                            <input type="text" class="form-control" name="maDoanhNghiep" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="form-group">
+                                            <label class="form-label">Tên doanh nghiệp <span class="text-danger">*</span></label>
+                                            <input type="text" class="form-control" name="tenDoanhNghiep" required>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label class="form-label">Địa chỉ <span class="text-danger">*</span></label>
+                                            <input type="text" class="form-control" name="diaChi" required>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label class="form-label">Tỉnh thành <span class="text-danger">*</span></label>
+                                            <select class="form-select" name="tinhThanh" required>
+                                                <option value="">Chọn tỉnh thành</option>
+                                                <option value="quang-tri">Quảng Trị</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label class="form-label">Quận huyện <span class="text-danger">*</span></label>
+                                            <select class="form-select" name="quanHuyen" required>
+                                                <option value="">Chọn quận huyện</option>
+                                                <option value="dong-ha">Đông Hà</option>
+                                                <option value="quang-tri">Quảng Trị</option>
+                                                <option value="vinh-linh">Vĩnh Linh</option>
+                                                <option value="gio-linh">Gio Linh</option>
+                                                <option value="cam-lo">Cam Lộ</option>
+                                                <option value="trieu-phong">Triệu Phong</option>
+                                                <option value="hai-lang">Hải Lăng</option>
+                                                <option value="con-co">Cồn Cỏ</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label class="form-label">Xã phường <span class="text-danger">*</span></label>
+                                            <select class="form-select" name="xaPhuong" required>
+                                                <option value="">Chọn xã phường</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label class="form-label">Mã số thuế <span class="text-danger">*</span></label>
+                                            <input type="text" class="form-control" name="maSoThue" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label class="form-label">Số GPĐK kinh doanh <span class="text-danger">*</span></label>
+                                            <input type="text" class="form-control" name="soGPKD" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label class="form-label">Ngày cấp <span class="text-danger">*</span></label>
+                                            <input type="date" class="form-control" name="ngayCap" required>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label class="form-label">Cơ quan cấp <span class="text-danger">*</span></label>
+                                            <input type="text" class="form-control" name="coQuanCap" required>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Thông tin kinh doanh -->
+                        <div class="card mb-3">
+                            <div class="card-header">
+                                <h6 class="mb-0">Thông tin kinh doanh</h6>
+                            </div>
+                            <div class="card-body">
+                                <div class="row mb-3">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="form-label">Hình thức bán hàng <span class="text-danger">*</span></label>
+                                            <select class="form-select" name="hinhThucBanHang" required>
+                                                <option value="">Chọn hình thức</option>
+                                                <option value="truyen-thong">Truyền thống</option>
+                                                <option value="thuong-mai-dien-tu">Thương mại điện tử</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="form-label">Thị trường <span class="text-danger">*</span></label>
+                                            <select class="form-select" name="thiTruong" required>
+                                                <option value="">Chọn thị trường</option>
+                                                <option value="xuat-khau">Xuất khẩu</option>
+                                                <option value="trong-nuoc">Trong nước</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="form-label">Quy mô doanh nghiệp <span class="text-danger">*</span></label>
+                                            <select class="form-select" name="quyMoDoanhNghiep" required>
+                                                <option value="">Chọn quy mô</option>
+                                                <option value="nho">Doanh nghiệp nhỏ</option>
+                                                <option value="vua">Doanh nghiệp vừa</option>
+                                                <option value="lon">Doanh nghiệp lớn</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="form-label">Doanh thu dự kiến hàng năm (VNĐ) <span class="text-danger">*</span></label>
+                                            <input type="number" class="form-control" name="doanhThuDuKien" required>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="form-label">Trạng thái <span class="text-danger">*</span></label>
+                                            <select class="form-select" name="trangThai" required>
+                                                <option value="">Chọn trạng thái</option>
+                                                <option value="dang-hoat-dong">Đang hoạt động</option>
+                                                <option value="ngung-hoat-dong">Ngừng hoạt động</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Danh sách sản phẩm -->
+                        <div class="card mb-3">
+                            <div class="card-header">
+                                <h6 class="mb-0">Sản phẩm</h6>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered align-middle" id="tableSanPham">
+                                        <thead style="background: #4285f4; color: #fff;">
+                                            <tr>
+                                                <th style="width: 60px;">STT</th>
+                                                <th>Tên sản phẩm</th>
+                                                <th style="width: 80px;">Tác vụ</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="danhSachSanPham">
+                                            <!-- Dòng sản phẩm sẽ được thêm ở đây -->
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <button type="button" class="btn btn-primary mt-2" id="btnThemSanPham">
+                                    <i class="fas fa-plus"></i> Thêm sản phẩm
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                    <button type="button" class="btn btn-primary" id="btnLuu">Lưu</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Xử lý sự kiện click nút Thêm mới
+            document.getElementById('btnThemMoi').addEventListener('click', function() {
+                var modal = new bootstrap.Modal(document.getElementById('themMoiModal'));
+                modal.show();
+            });
+
+            // Danh sách tên sản phẩm mẫu
+            const sanPhamOptions = [
+                'Chọn tên sản phẩm',
+                'Gạo',
+                'Cà phê',
+                'Hồ tiêu',
+                'Cao su',
+                'Sắn',
+                'Thủy sản',
+                'Rau củ',
+                'Trái cây',
+                'Sản phẩm khác'
+            ];
+
+            function taoDongSanPham(index) {
+                let optionsHtml = sanPhamOptions.map((sp, i) => `<option value="${i === 0 ? '' : sp}">${sp}</option>`).join('');
+                return `
+                    <tr class="san-pham-item">
+                        <td class="text-center">${index + 1}</td>
+                        <td>
+                            <select class="form-select" name="sanPham[${index}][ten]" required>
+                                ${optionsHtml}
+                            </select>
+                        </td>
+                        <td class="text-center">
+                            <button type="button" class="btn btn-danger btn-xoa-san-pham"><i class="fas fa-trash"></i></button>
+                        </td>
+                    </tr>
+                `;
+            }
+
+            function capNhatSTT() {
+                document.querySelectorAll('#danhSachSanPham tr').forEach((tr, idx) => {
+                    tr.querySelector('td').textContent = idx + 1;
+                });
+            }
+
+            // Thêm sản phẩm đầu tiên nếu chưa có
+            if (document.querySelectorAll('#danhSachSanPham tr').length === 0) {
+                document.getElementById('danhSachSanPham').insertAdjacentHTML('beforeend', taoDongSanPham(0));
+            }
+
+            // Xử lý sự kiện click nút Thêm sản phẩm
+            document.getElementById('btnThemSanPham').addEventListener('click', function() {
+                const tbody = document.getElementById('danhSachSanPham');
+                const index = tbody.children.length;
+                tbody.insertAdjacentHTML('beforeend', taoDongSanPham(index));
+                capNhatSTT();
+            });
+
+            // Xử lý xóa sản phẩm
+            document.getElementById('danhSachSanPham').addEventListener('click', function(e) {
+                if (e.target.closest('.btn-xoa-san-pham')) {
+                    const row = e.target.closest('tr');
+                    row.remove();
+                    capNhatSTT();
+                }
+            });
+
+            // Xử lý sự kiện click nút Lưu
+            document.getElementById('btnLuu').addEventListener('click', function() {
+                var form = document.getElementById('themMoiForm');
+                if (form.checkValidity()) {
+                    // TODO: Xử lý lưu dữ liệu
+                    alert('Lưu dữ liệu thành công!');
+                    var modal = bootstrap.Modal.getInstance(document.getElementById('themMoiModal'));
+                    modal.hide();
+                } else {
+                    form.reportValidity();
+                }
+            });
+        });
+    </script>
+</body>
+</html> 
