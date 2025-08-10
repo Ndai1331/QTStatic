@@ -442,6 +442,8 @@ async function renderDashboardSubContent(tabType, fromDate, toDate, province, wa
         dashboardChartInstance.destroy();
         dashboardChartInstance = null;
     }
+    document.getElementById('div-ward').setAttribute('style', 'display:flex;');
+
     // Render từng dashboard con theo tab
     if (tabType === 'agriculture') {
         
@@ -530,7 +532,9 @@ async function renderDashboardSubContent(tabType, fromDate, toDate, province, wa
             });
         }, 100);
     } else if (tabType === 'forestry') {
-        
+        document.getElementById('div-ward').setAttribute('style', 'display:none;');
+
+
         subContent.innerHTML = `
         <div class="dashboard-cards-row">
             <div class="dashboard-card forestry"><div class="card-title">TỔNG DIỆN TÍCH RỪNG (HA)</div><div class="card-value">23.827,90</div></div>
