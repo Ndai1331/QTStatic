@@ -1,9 +1,9 @@
 // API Configuration
-const API_URL = 'https://core.hpte.vn/items/APP_URL';
-const PROVINCES_API = 'https://core.hpte.vn/items/Provinces';
-const WARDS_API = 'https://core.hpte.vn/items/Wards';
-const TRONGTROT_REPORT_API = 'https://api-csdl.hpte.vn/api/TTDashboard';
-const QLCL_REPORT_API = 'https://api-csdl.hpte.vn/api/QLCLDashboard';
+const API_URL = 'https://quantri-csdlnn.quangtri.gov.vn/items/APP_URL';
+const PROVINCES_API = 'https://quantri-csdlnn.quangtri.gov.vn/items/Provinces';
+const WARDS_API = 'https://quantri-csdlnn.quangtri.gov.vn/items/Wards';
+const TRONGTROT_REPORT_API = 'https://api-csdlnn.quangtri.gov.vn/api/TTDashboard';
+const QLCL_REPORT_API = 'https://api-csdlnn.quangtri.gov.vn/api/QLCLDashboard';
 
 // Authentication token - bạn có thể thay đổi token này
 const API_TOKEN = 'udSUDFzxPH3z4G8qXf2vMQpZUEeT3fw-'; // Token thực
@@ -86,7 +86,7 @@ const SAMPLE_DATA = {
             "date_updated": null,
             "Name": "Điều hành",
             "App_images": "C6AB7AC5-DA9C-4135-B78F-9CAC1712F227",
-            "App_Url": "https://core.hpte.vn",
+            "App_Url": "https://quantri-csdlnn.quangtri.gov.vn",
             "Note": "Giới thiệu hệ thống dữ liệu dùng chung – Nền tảng kết nối và chia sẻ thông minh! ✔️ Tập trung, chuẩn hóa và đồng bộ dữ liệu giữa các đơn vị. 🔒 Bảo mật cao, phân quyền rõ ràng, đảm bảo an toàn thông tin. 🔄 Kết nối linh hoạt, hỗ trợ liên thông nhiều hệ thống khác nhau. 📊 Tối ưu khai thác dữ liệu, hỗ trợ ra quyết định chính xác, nhanh chóng."
         }
     ]
