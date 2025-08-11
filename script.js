@@ -446,8 +446,33 @@ async function renderDashboardSubContent(tabType, fromDate, toDate, province, wa
 
     // Render từng dashboard con theo tab
     if (tabType === 'agriculture') {
-        
-        const response = await fetch(TRONGTROT_REPORT_API, {
+        let appendUrl = false;
+        let url = TRONGTROT_REPORT_API + '?';
+        if(province != null){
+            url += `province=${province}`;
+            appendUrl= true;
+        }
+        if(ward != null){
+            if(appendUrl){
+                url += '&';
+            }
+            url += `wards=${ward}`;
+            appendUrl= true;
+        }
+        if(fromDate != null){
+            if(appendUrl){
+                url += '&';
+            }
+            url += `fromDate=${fromDate}`;
+            appendUrl= true;
+        }
+        if(toDate != null){
+            if(appendUrl){
+                url += '&';
+            }
+            url += `toDate=${toDate}`;
+        }
+        const response = await fetch(url, {
             method: 'GET',
             headers: getApiHeaders(),
         });
