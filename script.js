@@ -4,6 +4,7 @@ const PROVINCES_API = 'https://quantri-csdlnn.quangtri.gov.vn/items/Provinces';
 const WARDS_API = 'https://quantri-csdlnn.quangtri.gov.vn/items/Wards';
 const TRONGTROT_REPORT_API = 'https://api-csdlnn.quangtri.gov.vn/api/TTDashboard';
 const QLCL_REPORT_API = 'https://api-csdlnn.quangtri.gov.vn/api/QLCLDashboard';
+const LAMNGHIEP_API = 'https://api-lamnghiep.hpte.vn/api/Dashboard/';
 
 // Authentication token - bạn có thể thay đổi token này
 const API_TOKEN = 'udSUDFzxPH3z4G8qXf2vMQpZUEeT3fw-'; // Token thực
@@ -287,6 +288,128 @@ function getApiHeaders() {
     return headers;
 }
 
+// Convert date string from YYYY-MM-DD (input[type="date"]) to DD/MM/YYYY for API
+function toDDMMYYYY(dateString) {
+    if (!dateString) return '';
+    const parts = dateString.split('-');
+    if (parts.length !== 3) return dateString;
+    const [year, month, day] = parts;
+    return `${day}/${month}/${year}`;
+}
+
+// Build query string from key-value object, ignoring null/undefined/empty values
+function buildQueryString(params) {
+    const query = Object.entries(params)
+        .filter(([, value]) => value !== undefined && value !== null && value !== '')
+        .map(([key, value]) => `${encodeURIComponent(key)}=${encodeURIComponent(String(value))}`)
+        .join('&');
+    return query ? `?${query}` : '';
+}
+
+// Small wrapper to fetch JSON with shared headers
+async function fetchJson(url) {
+    const response = await fetch(url, {
+        method: 'GET',
+        headers: getApiHeaders(),
+    });
+    if (!response.ok) {
+        throw new Error(`HTTP error ${response.status} for ${url}`);
+    }
+    return response.json();
+}
+
+// Format Date object to YYYY-MM-DD for input[type="date"]
+function formatDateForInput(date) {
+    const yyyy = date.getFullYear();
+    const mm = String(date.getMonth() + 1).padStart(2, '0');
+    const dd = String(date.getDate()).padStart(2, '0');
+    return `${yyyy}-${mm}-${dd}`;
+}
+
+// Get default date range: from = today - 3 months, to = today
+function getDefaultLast3MonthsRange() {
+    const to = new Date();
+    const from = new Date(to);
+    from.setMonth(from.getMonth() - 3);
+    return { from, to };
+}
+
+// Set default date inputs for dashboard filters
+function setDefaultDashboardDateRange() {
+    const fromInput = document.getElementById('fromDate');
+    const toInput = document.getElementById('toDate');
+    if (!fromInput || !toInput) return;
+    const { from, to } = getDefaultLast3MonthsRange();
+    toInput.value = formatDateForInput(to);
+    fromInput.value = formatDateForInput(from);
+}
+
+// Call: /GetThongKeDuLieuLamNghiep with FromDate/ToDate
+async function fetchLamNghiepDashboard(fromDate, toDate) {
+    const f = toDDMMYYYY(fromDate);
+    const t = toDDMMYYYY(toDate);
+    console.log(f);
+    const base = 'https://api-lamnghiep.hpte.vn/api/Dashboard/GetThongKeDuLieuLamNghiep';
+    const url = base + buildQueryString({ FromDate:"01/01/2015", ToDate: t });
+    return fetchJson(url);
+}
+
+// Call: /GetThongTinSuDungRung/{typeId}
+async function fetchThongTinSuDungRung(typeId, options) {
+    const {
+        provinceId = 0,
+        districtId = 0,
+        year = 0,
+        month = 0,
+        fromDate,
+        toDate,
+        isCompareWithPrevMonth = false,
+    } = options || {};
+
+
+    const f = toDDMMYYYY(fromDate);
+    const t = toDDMMYYYY(toDate);
+    const base = `https://api-lamnghiep.hpte.vn/api/Dashboard/GetThongTinSuDungRung/${typeId}`;
+    const url = base + buildQueryString({
+        ProvinceId: 0,
+        DistrictId: 0,
+        Year: 0,
+        Month: 0,
+        FromDate: f,
+        ToDate: t,
+        IsCompareWithPrevMonth: isCompareWithPrevMonth,
+    });
+    return fetchJson(url);
+}
+
+// Call all 4 forestry APIs in parallel based on FromDate/ToDate
+async function fetchForestryApis(fromDate, toDate, options) {
+    // typeIds 0, 3, 2 as per provided URLs
+    const common = {
+        provinceId: options?.provinceId ?? 0,
+        districtId: options?.districtId ?? 0,
+        year: options?.year ?? 0,
+        month: options?.month ?? 0,
+        fromDate,
+        toDate,
+        isCompareWithPrevMonth:  false,
+    };
+
+    const [summary, suDungRung0, suDungRung3, suDungRung2] = await Promise.all([
+        fetchLamNghiepDashboard(fromDate, toDate),
+        fetchThongTinSuDungRung(0, common),
+        fetchThongTinSuDungRung(3, common),
+        fetchThongTinSuDungRung(2, common),
+    ]);
+
+    return {
+        summary,
+        suDungRung0,
+        suDungRung3,
+        suDungRung2,
+    };
+}
+
 // Function to check if token is configured
 function isTokenConfigured() {
     return API_TOKEN && API_TOKEN !== 'YOUR_API_TOKEN_HERE';
@@ -355,6 +478,8 @@ function checkCorsStatus() {
 // Initialize CORS check
 document.addEventListener('DOMContentLoaded', function() {
     const corsStatus = checkCorsStatus();
+    // Set default date range: today as ToDate, 3 months ago as FromDate
+    setDefaultDashboardDateRange();
     
     if (corsStatus.isCrossOrigin) {
         console.log('🔒 Cross-origin setup detected. CORS errors may occur.');
@@ -443,6 +568,7 @@ async function renderDashboardSubContent(tabType, fromDate, toDate, province, wa
         dashboardChartInstance = null;
     }
     document.getElementById('div-ward').setAttribute('style', 'display:flex;');
+    document.getElementById('div-province').setAttribute('style', 'display:flex;');
 
     // Render từng dashboard con theo tab
     if (tabType === 'agriculture') {
@@ -499,28 +625,7 @@ async function renderDashboardSubContent(tabType, fromDate, toDate, province, wa
                     <canvas id="agriChart2"></canvas>
                 </div>
             </div>`;
-        }else{
-
-        // subContent.innerHTML = `
-        // <div class="dashboard-cards-row">
-        //     <div class="dashboard-card agriculture"><div class="card-icon"><i class="fas fa-industry"></i></div><div class="card-title">Tổng số cơ sở SX phân bón</div><div class="card-value">5</div></div>
-        //     <div class="dashboard-card agriculture"><div class="card-icon"><i class="fas fa-store"></i></div><div class="card-title">Tổng số cơ sở kinh doanh phân bón</div><div class="card-value">10</div></div>
-        //     <div class="dashboard-card agriculture"><div class="card-icon"><i class="fas fa-flask"></i></div><div class="card-title">Tổng số cơ sở SX thuốc BVTV</div><div class="card-value">7</div></div>
-        //     <div class="dashboard-card agriculture"><div class="card-icon"><i class="fas fa-prescription-bottle"></i></div><div class="card-title">Tổng cơ sở kinh doanh thuốc BVTV</div><div class="card-value">10</div></div>
-        //     <div class="dashboard-card agriculture"><div class="card-icon"><i class="fas fa-exclamation-triangle"></i></div><div class="card-title">Tổng số cơ sở vi phạm SXKD BVTV</div><div class="card-value">11</div></div>
-        // </div>
-        // <div class="dashboard-charts-row" style="display:flex;gap:24px;">
-        //     <div style="flex:1;background:#fff;border-radius:12px;padding:18px;">
-        //         <canvas id="agriChart1"></canvas>
-        //     </div>
-        //     <div style="flex:1;background:#fff;border-radius:12px;padding:18px;">
-        //         <canvas id="agriChart2"></canvas>
-        //     </div>
-        // </div>`;
         }
-
-
-
 
         setTimeout(() => {
             new Chart(document.getElementById('agriChart1').getContext('2d'), {
@@ -557,77 +662,111 @@ async function renderDashboardSubContent(tabType, fromDate, toDate, province, wa
             });
         }, 100);
     } else if (tabType === 'forestry') {
+        document.getElementById('div-province').setAttribute('style', 'display:none;');
         document.getElementById('div-ward').setAttribute('style', 'display:none;');
+      
+        // Call 4 forestry APIs in parallel using FromDate/ToDate
+        try {
+            const results = await fetchForestryApis(fromDate, toDate, {
+                provinceId: Number(province) || 0,
+                districtId: Number(ward) || 0,
+            });
 
+            if(results.summary != null)
+            {
+                subContent.innerHTML = `
+                    <div class="dashboard-cards-row">
+                        <div class="dashboard-card forestry"><div class="card-title">TỔNG DIỆN TÍCH RỪNG (HA)</div><div class="card-value">${results.summary.tongDienTichRung}</div></div>
+                        <div class="dashboard-card forestry"><div class="card-title">TỔNG LOÀI ĐỘNG VẬT</div><div class="card-value">${results.summary.tongSoLoaiDongVat}</div></div>
+                        <div class="dashboard-card forestry"><div class="card-title">TỔNG SỐ LOÀI THỰC VẬT</div><div class="card-value">${results.summary.tongSoLoaiThucVat}</div></div>
+                        <div class="dashboard-card forestry"><div class="card-title">TỔNG SỐ LOÀI NGUY CẤP</div><div class="card-value">${results.summary.tongSoLoaiNguyCap}</div></div>
+                    </div>
+                    <div class="dashboard-charts-row" style="display:flex;gap:24px;">
+                        <div style="flex:1;background:#e8f5e9;border-radius:12px;padding:18px;">
+                            <canvas id="forestChart1"></canvas>
+                        </div>
+                        <div style="flex:1;background:#e8f5e9;border-radius:12px;padding:18px;">
+                            <canvas id="forestChart2"></canvas>
+                        </div>
+                        <div style="flex:1;background:#e8f5e9;border-radius:12px;padding:18px;">
+                            <canvas id="forestChart3"></canvas>
+                        </div>
+                    </div>`;
+                setTimeout(() => {
+                    let colors = [
+                        '#65AC85', // xanh lá nhạt
+                        '#5FB3EC', // xanh dương sáng
+                        '#FAD577', // vàng nhạt
+                        '#E5F3EB', // xanh ngọc rất nhạt
+                        '#F5F5F5', // trắng xám
+                        '#3B6E4F', // xanh rừng già
+                        '#8C6A43', // nâu gỗ
+                        '#A7C957', // xanh lá non
+                        '#CCD5AE', // xanh rêu nhạt
+                        '#2F4858'  // xanh xám than
+                      ];
+                    if(results.suDungRung0[0] != 'Không tìm thấy dữ liệu!'){
+                        new Chart(document.getElementById('forestChart1').getContext('2d'), {
+                            type: 'pie',
+                            data: {
+                                labels: results.suDungRung0.map(item => item.label),
+                                datasets: [{
+                                    data: results.suDungRung0.map(item => item.value),
+                                    backgroundColor: colors.slice(0, results.suDungRung0.length),
+                                }]
+                            },
+                            options: {
+                                plugins: {
+                                    legend: { position: 'bottom' },
+                                    title: { display: true, text: 'Tỷ lệ diện tích rừng theo mục đích sử dụng (HA)', font: { size: 14 } }
+                                }
+                            }
+                        });
+                    }
 
-        subContent.innerHTML = `
-        <div class="dashboard-cards-row">
-            <div class="dashboard-card forestry"><div class="card-title">TỔNG DIỆN TÍCH RỪNG (HA)</div><div class="card-value">23.827,90</div></div>
-            <div class="dashboard-card forestry"><div class="card-title">TỔNG LOÀI ĐỘNG VẬT</div><div class="card-value">345</div></div>
-            <div class="dashboard-card forestry"><div class="card-title">TỔNG SỐ LOÀI THỰC VẬT</div><div class="card-value">188</div></div>
-            <div class="dashboard-card forestry"><div class="card-title">TỔNG SỐ LOÀI NGUY CẤP</div><div class="card-value">4</div></div>
-        </div>
-        <div class="dashboard-charts-row" style="display:flex;gap:24px;">
-            <div style="flex:1;background:#e8f5e9;border-radius:12px;padding:18px;">
-                <canvas id="forestChart1"></canvas>
-            </div>
-            <div style="flex:1;background:#e8f5e9;border-radius:12px;padding:18px;">
-                <canvas id="forestChart2"></canvas>
-            </div>
-            <div style="flex:1;background:#e8f5e9;border-radius:12px;padding:18px;">
-                <canvas id="forestChart3"></canvas>
-            </div>
-        </div>`;
-        setTimeout(() => {
-            new Chart(document.getElementById('forestChart1').getContext('2d'), {
-                type: 'pie',
-                data: {
-                    labels: ['Rừng ngoài quy hoạch', 'Vườn quốc gia', 'Rừng sản xuất gỗ lớn', 'Rừng phòng hộ'],
-                    datasets: [{
-                        data: [35, 25, 20, 20],
-                        backgroundColor: ['#4caf50', '#ff9800', '#2196f3', '#ffc107'],
-                    }]
-                },
-                options: {
-                    plugins: {
-                        legend: { position: 'bottom' },
-                        title: { display: true, text: 'Tỷ lệ diện tích rừng theo mục đích sử dụng (HA)', font: { size: 14 } }
+                    if(results.suDungRung3[0] != 'Không tìm thấy dữ liệu!'){
+                    new Chart(document.getElementById('forestChart2').getContext('2d'), {
+                        type: 'pie',
+                        data: {
+                            labels: results.suDungRung3.map(item => item.label),
+                            datasets: [{
+                                data: results.suDungRung3.map(item => item.value),
+                                backgroundColor: colors.slice(0, results.suDungRung3.length),
+                            }]
+                        },
+                        options: {
+                            plugins: {
+                                legend: { position: 'bottom' },
+                                title: { display: true, text: 'Tỷ lệ diện tích rừng theo nguồn gốc rừng (HA)', font: { size: 14 } }
+                            }
+                        }
+                    });
                     }
-                }
-            });
-            new Chart(document.getElementById('forestChart2').getContext('2d'), {
-                type: 'pie',
-                data: {
-                    labels: ['Rừng khác', 'Rừng sản xuất', 'Rừng phòng hộ'],
-                    datasets: [{
-                        data: [40, 35, 25],
-                        backgroundColor: ['#81c784', '#64b5f6', '#ffd54f'],
-                    }]
-                },
-                options: {
-                    plugins: {
-                        legend: { position: 'bottom' },
-                        title: { display: true, text: 'Tỷ lệ diện tích rừng theo nguồn gốc rừng (HA)', font: { size: 14 } }
+
+                    if(results.suDungRung2[0] != 'Không tìm thấy dữ liệu!'){
+                        new Chart(document.getElementById('forestChart3').getContext('2d'), {
+                        type: 'pie',
+                        data: {
+                            labels: results.suDungRung2.map(item => item.label),
+                            datasets: [{
+                                data: results.suDungRung2.map(item => item.value),
+                                backgroundColor: colors.slice(0, results.suDungRung2.length),
+                            }]
+                        },
+                        options: {
+                            plugins: {
+                                legend: { position: 'bottom' },
+                                title: { display: true, text: 'Tỷ lệ diện tích rừng theo chức năng rừng (HA)', font: { size: 14 } }
+                            }
+                        }
+                    });
                     }
-                }
-            });
-            new Chart(document.getElementById('forestChart3').getContext('2d'), {
-                type: 'pie',
-                data: {
-                    labels: ['Rừng trồng', 'Rừng tự nhiên'],
-                    datasets: [{
-                        data: [60, 40],
-                        backgroundColor: ['#388e3c', '#a5d6a7'],
-                    }]
-                },
-                options: {
-                    plugins: {
-                        legend: { position: 'bottom' },
-                        title: { display: true, text: 'Tỷ lệ diện tích rừng theo chức năng rừng (HA)', font: { size: 14 } }
-                    }
-                }
-            });
-        }, 100);
+                }, 100);
+            }
+        } catch (err) {
+            console.warn('⚠️ Lỗi khi gọi API Lâm nghiệp:', err);
+        }
+
     } else if (tabType === 'fishery') {
         subContent.innerHTML = `
         <div class="dashboard-cards-row">

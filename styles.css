@@ -441,6 +441,17 @@ body {
     text-align: center;
     box-sizing: border-box;
 }
+
+/* Prevent interaction for disabled tabs and show disabled styling */
+.tab-item[disabled],
+.tab-item[aria-disabled="true"],
+.tab-item[data-disabled="true"] {
+  pointer-events: none;   /* Block mouse clicks */
+  cursor: not-allowed;    /* Show disabled cursor */
+  opacity: 0.5;           /* Dim the tab */
+  user-select: none;      /* Prevent text selection */
+}
+
 .tab-item:last-child {
     border-right: none;
 }

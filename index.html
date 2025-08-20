@@ -57,13 +57,13 @@
                     <div class="dashboard-filter-row">
                         <div class="date-picker-group">
                             <label for="fromDate">Từ ngày:</label>
-                            <input type="date" id="fromDate" class="form-date" />
+                            <input type="date" id="fromDate" class="form-date"  />
                         </div>
                         <div class="date-picker-group">
                             <label for="toDate">Đến ngày:</label>
-                            <input type="date" id="toDate" class="form-date" />
+                            <input type="date" id="toDate" class="form-date"  />
                         </div>
-                        <div class="dropdown-group">
+                        <div class="dropdown-group" id="div-province">
                             <label for="provinceSelect">Tỉnh/Thành phố:</label>
                             <select id="provinceSelect" class="form-select">
                                 <option value="">Chọn tỉnh/thành phố</option>
@@ -91,15 +91,15 @@
                                 <i class="fas fa-tree"></i>
                                 <span>Lâm nghiệp</span>
                             </div>
-                            <div class="tab-item" data-tab="fishery">
+                            <div class="tab-item" data-tab="fishery" disabled="true">
                                 <i class="fas fa-fish"></i>
                                 <span>Thủy sản</span>
                             </div>
-                            <div class="tab-item" data-tab="livestock">
+                            <div class="tab-item" data-tab="livestock" disabled="true">
                                 <i class="fas fa-paw"></i>
                                 <span>Chăn nuôi</span>
                             </div>
-                            <div class="tab-item" data-tab="quality">
+                            <div class="tab-item" data-tab="quality" >
                                 <i class="fas fa-award"></i>
                                 <span>Chất lượng</span>
                             </div>
