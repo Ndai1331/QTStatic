@@ -388,13 +388,15 @@ async function fetchForestryApis(fromDate, toDate, options) {
     const common = {
         provinceId: options?.provinceId ?? 0,
         districtId: options?.districtId ?? 0,
+        provinceCode: options?.provinceCode ?? '',
+        wardCode: options?.wardCode ?? '',
         year: options?.year ?? 0,
         month: options?.month ?? 0,
         fromDate,
         toDate,
         isCompareWithPrevMonth:  false,
     };
-
+    
     const [summary, suDungRung0, suDungRung3, suDungRung2] = await Promise.all([
         fetchLamNghiepDashboard(fromDate, toDate),
         fetchThongTinSuDungRung(0, common),
@@ -526,6 +528,7 @@ function populateProvinceSelect(provinces) {
         const option = document.createElement('option');
         option.value = province.id;
         option.textContent = province.name;
+        option.setAttribute('data-code', province.code || '');
         if (province.name.toLowerCase().includes('quảng trị')) {
             option.selected = true;
             foundQuangTri = true;
@@ -554,12 +557,14 @@ const DASHBOARD_FAKE_DATA = {
 function showDashboardFakeData(tabType) {
     const provinceId= provinceSelect.options[provinceSelect.selectedIndex]?.value || '1';
     const wardId= wardSelect.options[wardSelect.selectedIndex]?.value || null;
+    const provinceCode= provinceSelect.options[provinceSelect.selectedIndex]?.getAttribute('data-code') || null;
+    const wardCode= wardSelect.options[wardSelect.selectedIndex]?.getAttribute('data-code') || null;
     const fromDate= document.getElementById('fromDate').value || null;
     const toDate= document.getElementById('toDate').value || null;
-    renderDashboardSubContent(tabType, fromDate, toDate, provinceId, wardId);
+    renderDashboardSubContent(tabType, fromDate, toDate, provinceId, wardId, provinceCode, wardCode);
 }
 
-async function renderDashboardSubContent(tabType, fromDate, toDate, province, ward) {
+async function renderDashboardSubContent(tabType, fromDate, toDate, province, ward, provinceCode, wardCode) {
     const subContent = document.getElementById('dashboardSubContent');
     subContent.innerHTML = '';
     // Xóa chart cũ nếu có
@@ -662,14 +667,10 @@ async function renderDashboardSubContent(tabType, fromDate, toDate, province, wa
             });
         }, 100);
     } else if (tabType === 'forestry') {
-        document.getElementById('div-province').setAttribute('style', 'display:none;');
-        document.getElementById('div-ward').setAttribute('style', 'display:none;');
-      
-        // Call 4 forestry APIs in parallel using FromDate/ToDate
         try {
             const results = await fetchForestryApis(fromDate, toDate, {
-                provinceId: Number(province) || 0,
-                districtId: Number(ward) || 0,
+                provinceCode: provinceCode,
+                wardCode: wardCode,
             });
 
             if(results.summary != null)
@@ -1191,6 +1192,7 @@ function populateWardSelect(wards) {
         option.value = ward.id;
         option.textContent = ward.name;
         option.selected = firstItem;
+        option.setAttribute('data-code', ward.code || '');
         wardSelect.appendChild(option);
         firstItem = false;
     });
