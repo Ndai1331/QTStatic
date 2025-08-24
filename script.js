@@ -4,8 +4,8 @@ const PROVINCES_API = 'https://quantri-csdlnn.quangtri.gov.vn/items/Provinces';
 const WARDS_API = 'https://quantri-csdlnn.quangtri.gov.vn/items/Wards';
 const TRONGTROT_REPORT_API = 'https://api-csdlnn.quangtri.gov.vn/api/TTDashboard';
 const QLCL_REPORT_API = 'https://api-csdlnn.quangtri.gov.vn/api/QLCLDashboard';
+// const LAMNGHIEP_API = 'https://localhost:44313/api/Dashboard/';
 const LAMNGHIEP_API = 'https://api-lamnghiep.hpte.vn/api/Dashboard/';
-
 // Authentication token - bạn có thể thay đổi token này
 const API_TOKEN = 'udSUDFzxPH3z4G8qXf2vMQpZUEeT3fw-'; // Token thực
 
@@ -291,6 +291,7 @@ function getApiHeaders() {
 // Convert date string from YYYY-MM-DD (input[type="date"]) to DD/MM/YYYY for API
 function toDDMMYYYY(dateString) {
     if (!dateString) return '';
+    console.log('dateString', dateString);
     const parts = dateString.split('-');
     if (parts.length !== 3) return dateString;
     const [year, month, day] = parts;
@@ -349,35 +350,39 @@ async function fetchLamNghiepDashboard(fromDate, toDate) {
     const f = toDDMMYYYY(fromDate);
     const t = toDDMMYYYY(toDate);
     console.log(f);
-    const base = 'https://api-lamnghiep.hpte.vn/api/Dashboard/GetThongKeDuLieuLamNghiep';
+    const base = LAMNGHIEP_API + 'GetThongKeDuLieuLamNghiep';
     const url = base + buildQueryString({ FromDate:"01/01/2015", ToDate: t });
     return fetchJson(url);
 }
 
 // Call: /GetThongTinSuDungRung/{typeId}
 async function fetchThongTinSuDungRung(typeId, options) {
-    const {
-        provinceId = 0,
-        districtId = 0,
-        year = 0,
-        month = 0,
-        fromDate,
-        toDate,
-        isCompareWithPrevMonth = false,
-    } = options || {};
+    // const {
+    //     provinceId = 0,
+    //     districtId = 0,
+    //     provinceCode = '',
+    //     wardCode = '',
+    //     year = 0,
+    //     month = 0,
+    //     fromDate,
+    //     toDate,
+    //     isCompareWithPrevMonth = false,
+    // } = options || {};
 
 
-    const f = toDDMMYYYY(fromDate);
-    const t = toDDMMYYYY(toDate);
-    const base = `https://api-lamnghiep.hpte.vn/api/Dashboard/GetThongTinSuDungRung/${typeId}`;
+    const f = toDDMMYYYY(options?.fromDate);
+    const t = toDDMMYYYY(options?.toDate);
+    const base = LAMNGHIEP_API + `GetThongTinSuDungRung/${typeId}`;
     const url = base + buildQueryString({
         ProvinceId: 0,
         DistrictId: 0,
         Year: 0,
         Month: 0,
+        ProvinceCode: options?.provinceCode ?? '',
+        WardCode: options?.wardCode ?? '',
         FromDate: f,
         ToDate: t,
-        IsCompareWithPrevMonth: isCompareWithPrevMonth,
+        // IsCompareWithPrevMonth: isCompareWithPrevMonth,
     });
     return fetchJson(url);
 }
@@ -396,6 +401,7 @@ async function fetchForestryApis(fromDate, toDate, options) {
         toDate,
         isCompareWithPrevMonth:  false,
     };
+    console.log('common', common);
     
     const [summary, suDungRung0, suDungRung3, suDungRung2] = await Promise.all([
         fetchLamNghiepDashboard(fromDate, toDate),
@@ -561,6 +567,8 @@ function showDashboardFakeData(tabType) {
     const wardCode= wardSelect.options[wardSelect.selectedIndex]?.getAttribute('data-code') || null;
     const fromDate= document.getElementById('fromDate').value || null;
     const toDate= document.getElementById('toDate').value || null;
+
+    console.log(provinceCode, wardCode);
     renderDashboardSubContent(tabType, fromDate, toDate, provinceId, wardId, provinceCode, wardCode);
 }
 
@@ -1179,7 +1187,7 @@ async function loadWards(provinceId) {
             { id: 4, name: 'Xã A' },
             { id: 5, name: 'Xã B' }
         ];
-        populateWardSelect(sampleWards);
+        // populateWardSelect(sampleWards);
     }
 }
 
