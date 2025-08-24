@@ -4,8 +4,7 @@ const PROVINCES_API = 'https://quantri-csdlnn.quangtri.gov.vn/items/Provinces';
 const WARDS_API = 'https://quantri-csdlnn.quangtri.gov.vn/items/Wards';
 const TRONGTROT_REPORT_API = 'https://api-csdlnn.quangtri.gov.vn/api/TTDashboard';
 const QLCL_REPORT_API = 'https://api-csdlnn.quangtri.gov.vn/api/QLCLDashboard';
-// const LAMNGHIEP_API = 'https://localhost:44313/api/Dashboard/';
-const LAMNGHIEP_API = 'https://api-lamnghiep.hpte.vn/api/Dashboard/';
+const LAMNGHIEP_API = 'https://api-lamnghiep.quangtri.gov.vn/api/Dashboard/';
 // Authentication token - bạn có thể thay đổi token này
 const API_TOKEN = 'udSUDFzxPH3z4G8qXf2vMQpZUEeT3fw-'; // Token thực
 
