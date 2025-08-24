@@ -1186,15 +1186,12 @@ async function loadWards(provinceId) {
 // Populate ward select
 function populateWardSelect(wards) {
     wardSelect.innerHTML = '<option value="">Chọn phường/xã</option>';
-    var firstItem = true;
     wards.forEach(ward => {
         const option = document.createElement('option');
         option.value = ward.id;
         option.textContent = ward.name;
-        option.selected = firstItem;
         option.setAttribute('data-code', ward.code || '');
         wardSelect.appendChild(option);
-        firstItem = false;
     });
     
     wardSelect.disabled = false;
