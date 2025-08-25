@@ -59,7 +59,7 @@ async function fetchAll(fromDate, toDate, wardCode) {
         sanLuongnTieuThuThucAn: sanLuongnTieuThuThucAn,
         dichBenh: dichBenh,
         tiemPhong: tiemPhong,
-        thongKe: null,
+        thongKe: thongKe,
     };
 }
 
@@ -84,68 +84,68 @@ async function renderChanNuoiReport(tabType, fromDate, toDate, wardCode) {
             subContent.innerHTML = `
                 <div class="dashboard-cards-row">
                     <div class="dashboard-card livestock"><div class="card-title">Tổng số cơ sở nuôi</div><div class="card-value">
-                        ${results.thongKe?.TongSoCoSoChanNuoi}
+                        ${results.thongKe?.tongSoCoSoChanNuoi}
                     </div></div>
                     <div class="dashboard-card livestock"><div class="card-title">Tổng số cơ sở sản xuất thức ăn</div><div class="card-value">
-                        ${results.thongKe?.TongCoSoSxTACN}
+                        ${results.thongKe?.tongCoSoSxTACN}
                     </div></div>
                     <div class="dashboard-card livestock"><div class="card-title">Tổng số cơ sở kinh doanh thức ăn</div><div class="card-value">
-                        ${results.thongKe?.TongCoSoKdTACN}
+                        ${results.thongKe?.tongCoSoKdTACN}
                     </div></div>
                     <div class="dashboard-card livestock"><div class="card-title">Tổng số đàn lợn</div><div class="card-value">
-                        ${results.thongKe?.TongDanLon}
+                        ${results.thongKe?.tongDanLon}
                     </div></div>
                     <div class="dashboard-card livestock"><div class="card-title">Tổng số đàn bò</div><div class="card-value">
-                        ${results.thongKe?.TongDanBo}
+                        ${results.thongKe?.tongDanBo}
                     </div></div>
                     <div class="dashboard-card livestock"><div class="card-title">Tổng số đàn trâu</div><div class="card-value">
-                        ${results.thongKe?.TongDanTrau}
+                        ${results.thongKe?.tongDanTrau}
                     </div></div>
                     <div class="dashboard-card livestock"><div class="card-title">Tổng số đàn gia cầm</div><div class="card-value">
-                        ${results.thongKe?.TongDanGiaCam}
+                        ${results.thongKe?.tongDanGiaCam}
                     </div></div>
                     <div class="dashboard-card livestock"><div class="card-title">Tổng cơ sở chăn nuôi gà</div><div class="card-value">
-                        ${results.thongKe?.CoSoChanNuoiGa}
+                        ${results.thongKe?.coSoChanNuoiGa}
                     </div></div>
                     <div class="dashboard-card livestock"><div class="card-title">Tổng cơ sở chăn nuôi vịt</div><div class="card-value">
-                        ${results.thongKe?.CoSoChanNuoiVit}
+                        ${results.thongKe?.coSoChanNuoiVit}
                     </div></div>
                     <div class="dashboard-card livestock"><div class="card-title">Tổng cơ sở chăn nuôi lợn</div><div class="card-value">
-                        ${results.thongKe?.CoSoChanNuoiLon}
+                        ${results.thongKe?.coSoChanNuoiLon}
                     </div></div>
                     <div class="dashboard-card livestock"><div class="card-title">Tổng cơ sở chăn nuôi bò</div><div class="card-value">
-                        ${results.thongKe?.CoSoChanNuoiBo}
+                        ${results.thongKe?.coSoChanNuoiBo}
                     </div></div>
                     <div class="dashboard-card livestock"><div class="card-title">Tổng cơ sở chăn nuôi trâu</div><div class="card-value">
-                        ${results.thongKe?.CoSoChanNuoiTrau}
+                        ${results.thongKe?.coSoChanNuoiTrau}
                     </div></div>
                     <div class="dashboard-card livestock"><div class="card-title">Tổng cơ sở chăn nuôi dê</div><div class="card-value">
-                        ${results.thongKe?.CoSoChanNuoiDe}
+                        ${results.thongKe?.coSoChanNuoiDe}
                     </div></div>
                     <div class="dashboard-card livestock"><div class="card-title">Tổng số nông hộ</div><div class="card-value">
-                        ${results.thongKe?.NongHo}
+                        ${results.thongKe?.nongHo}
                     </div></div>
                     <div class="dashboard-card livestock"><div class="card-title">Tổng số trang trại nhỏ</div><div class="card-value">
-                        ${results.thongKe?.TrangTraiNho}
+                        ${results.thongKe?.trangTraiNho}
                     </div></div>
                     <div class="dashboard-card livestock"><div class="card-title">Tổng số trang trại vừa</div><div class="card-value">
-                        ${results.thongKe?.TrangTraiVua}
+                        ${results.thongKe?.trangTraiVua}
                     </div></div>
                     <div class="dashboard-card livestock"><div class="card-title">Tổng số trang trại lớn</div><div class="card-value">
-                        ${results.thongKe?.TrangTraiLon}
+                        ${results.thongKe?.trangTraiLon}
                     </div></div>
                     
                     <div class="dashboard-card livestock"><div class="card-title">Tổng sản lượng thịt gia súc</div><div class="card-value">
-                        ${results.thongKe?.SanLuongThitGiaSuc}
+                        ${results.thongKe?.sanLuongThitGiaSuc}
                     </div></div>
                     <div class="dashboard-card livestock"><div class="card-title">Tổng sản lượng thịt gia cầm</div><div class="card-value">
-                        ${results.thongKe?.SanLuongThitGiaCam}
+                        ${results.thongKe?.sanLuongThitGiaCam}
                     </div></div>
                     <div class="dashboard-card livestock"><div class="card-title">Tổng sản lượng trứng</div><div class="card-value">
-                        ${results.thongKe?.SanLuongTrung}
+                        ${results.thongKe?.sanLuongTrung}
                     </div></div>
                     <div class="dashboard-card livestock"><div class="card-title">Tổng sản lượng sữa</div><div class="card-value">
-                        ${results.thongKe?.SanLuongSua}
+                        ${results.thongKe?.sanLuongSua}
                     </div></div>
                 </div>
 
