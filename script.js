@@ -5,8 +5,11 @@ const WARDS_API = 'https://quantri-csdlnn.quangtri.gov.vn/items/Wards';
 const TRONGTROT_REPORT_API = 'https://api-csdlnn.quangtri.gov.vn/api/TTDashboard';
 const QLCL_REPORT_API = 'https://api-csdlnn.quangtri.gov.vn/api/QLCLDashboard';
 const LAMNGHIEP_API = 'https://api-lamnghiep.quangtri.gov.vn/api/Dashboard/';
-// Authentication token - bạn có thể thay đổi token này
+const CHANUOI_API = 'https://csdl-channuoi.quangtri.gov.vn/api/';
+const THUYSAN_API = 'https://csdl-thuysan.quangtri.gov.vn/api/';
 const API_TOKEN = 'udSUDFzxPH3z4G8qXf2vMQpZUEeT3fw-'; // Token thực
+
+const tinhQuangTriThuySan = 44;
 
 // Sample data for when API is not available (CORS issue)
 const SAMPLE_DATA = {
@@ -287,14 +290,82 @@ function getApiHeaders() {
     return headers;
 }
 
-// Convert date string from YYYY-MM-DD (input[type="date"]) to DD/MM/YYYY for API
-function toDDMMYYYY(dateString) {
-    if (!dateString) return '';
-    console.log('dateString', dateString);
-    const parts = dateString.split('-');
-    if (parts.length !== 3) return dateString;
-    const [year, month, day] = parts;
-    return `${day}/${month}/${year}`;
+// Normalize any date-like input into dd/MM/yyyy for API
+function toDDMMYYYY(dateInput) {
+    if (!dateInput) return '';
+
+    const pad2 = (n) => String(n).padStart(2, '0');
+    const format = (date) => `${pad2(date.getDate())}/${pad2(date.getMonth() + 1)}/${date.getFullYear()}`;
+
+    // Date instance
+    if (dateInput instanceof Date) {
+        if (isNaN(dateInput.getTime())) return '';
+        return format(dateInput);
+    }
+
+    // String input
+    if (typeof dateInput === 'string') {
+        const s = dateInput.trim();
+        if (!s) return '';
+
+        // Handle slash-separated formats: dd/MM/yyyy or yyyy/MM/dd
+        if (s.includes('/')) {
+            const parts = s.split('/');
+            if (parts.length === 3) {
+                const [a, b, c] = parts.map(p => p.trim());
+                if (a.length === 4) {
+                    // yyyy/MM/dd
+                    const yyyy = parseInt(a, 10);
+                    const mm = parseInt(b, 10);
+                    const dd = parseInt(c, 10);
+                    if (!isNaN(yyyy) && !isNaN(mm) && !isNaN(dd)) {
+                        return `${pad2(dd)}/${pad2(mm)}/${yyyy}`;
+                    }
+                } else {
+                    // dd/MM/yyyy (already desired); normalize padding
+                    const dd = parseInt(a, 10);
+                    const mm = parseInt(b, 10);
+                    const yyyy = parseInt(c, 10);
+                    if (!isNaN(yyyy) && !isNaN(mm) && !isNaN(dd)) {
+                        return `${pad2(dd)}/${pad2(mm)}/${yyyy}`;
+                    }
+                }
+            }
+        }
+
+        // Handle dash-separated formats: yyyy-MM-dd or dd-MM-yyyy
+        if (s.includes('-')) {
+            const parts = s.split('-');
+            if (parts.length === 3) {
+                const [a, b, c] = parts.map(p => p.trim());
+                if (a.length === 4) {
+                    // yyyy-MM-dd
+                    const yyyy = parseInt(a, 10);
+                    const mm = parseInt(b, 10);
+                    const dd = parseInt(c, 10);
+                    if (!isNaN(yyyy) && !isNaN(mm) && !isNaN(dd)) {
+                        return `${pad2(dd)}/${pad2(mm)}/${yyyy}`;
+                    }
+                } else {
+                    // dd-MM-yyyy
+                    const dd = parseInt(a, 10);
+                    const mm = parseInt(b, 10);
+                    const yyyy = parseInt(c, 10);
+                    if (!isNaN(yyyy) && !isNaN(mm) && !isNaN(dd)) {
+                        return `${pad2(dd)}/${pad2(mm)}/${yyyy}`;
+                    }
+                }
+            }
+        }
+
+        // Fallback: let Date parse it
+        const d = new Date(s);
+        return isNaN(d.getTime()) ? '' : format(d);
+    }
+
+    // Other types: try to construct Date
+    const d = new Date(dateInput);
+    return isNaN(d.getTime()) ? '' : format(d);
 }
 
 // Build query string from key-value object, ignoring null/undefined/empty values
@@ -356,19 +427,6 @@ async function fetchLamNghiepDashboard(fromDate, toDate) {
 
 // Call: /GetThongTinSuDungRung/{typeId}
 async function fetchThongTinSuDungRung(typeId, options) {
-    // const {
-    //     provinceId = 0,
-    //     districtId = 0,
-    //     provinceCode = '',
-    //     wardCode = '',
-    //     year = 0,
-    //     month = 0,
-    //     fromDate,
-    //     toDate,
-    //     isCompareWithPrevMonth = false,
-    // } = options || {};
-
-
     const f = toDDMMYYYY(options?.fromDate);
     const t = toDDMMYYYY(options?.toDate);
     const base = LAMNGHIEP_API + `GetThongTinSuDungRung/${typeId}`;
@@ -566,8 +624,6 @@ function showDashboardFakeData(tabType) {
     const wardCode= wardSelect.options[wardSelect.selectedIndex]?.getAttribute('data-code') || null;
     const fromDate= document.getElementById('fromDate').value || null;
     const toDate= document.getElementById('toDate').value || null;
-
-    console.log(provinceCode, wardCode);
     renderDashboardSubContent(tabType, fromDate, toDate, provinceId, wardId, provinceCode, wardCode);
 }
 
@@ -776,114 +832,56 @@ async function renderDashboardSubContent(tabType, fromDate, toDate, province, wa
         }
 
     } else if (tabType === 'fishery') {
-        subContent.innerHTML = `
-        <div class="dashboard-cards-row">
-            <div class="dashboard-card fishery"><div class="card-title">Cơ sở chế biến lâm sản</div><div class="card-value">2</div></div>
-            <div class="dashboard-card fishery"><div class="card-title">Cơ sở chế biến thủy sản</div><div class="card-value">1</div></div>
-            <div class="dashboard-card fishery"><div class="card-title">Cơ sở chế biến tổng hợp</div><div class="card-value">12</div></div>
-        </div>
-        <div class="dashboard-charts-row" style="display:flex;gap:24px;">
-            <div style="flex:1;background:#fff;border-radius:12px;padding:18px;">
-                <canvas id="fisheryChart1"></canvas>
-            </div>
-            <div style="flex:1;background:#fff;border-radius:12px;padding:18px;">
-                <canvas id="fisheryChart2"></canvas>
-            </div>
-        </div>`;
-        setTimeout(() => {
-            new Chart(document.getElementById('fisheryChart1').getContext('2d'), {
-                type: 'bar',
-                data: {
-                    labels: ['Cơ sở chế biến lâm sản', 'Cơ sở chế biến thủy sản', 'Cơ sở chế biến tổng hợp'],
-                    datasets: [{
-                        label: 'Số lượt kiểm tra theo tháng',
-                        data: [2, 1, 12],
-                        backgroundColor: '#4caf50',
-                    }]
-                },
-                options: {
-                    plugins: {
-                        legend: { display: false },
-                        title: { display: true, text: 'Số lượt kiểm tra theo tháng', font: { size: 16 } }
-                    },
-                    scales: { y: { beginAtZero: true } }
-                }
-            });
-            new Chart(document.getElementById('fisheryChart2').getContext('2d'), {
-                type: 'bar',
-                data: {
-                    labels: ['Cơ sở sản xuất giống', 'Cơ sở nuôi trồng'],
-                    datasets: [{
-                        label: 'Sản lượng giống',
-                        data: [4.5, 1],
-                        backgroundColor: '#42a5f5',
-                    }]
-                },
-                options: {
-                    plugins: {
-                        legend: { display: false },
-                        title: { display: true, text: 'Sản lượng giống', font: { size: 16 } }
-                    },
-                    scales: { y: { beginAtZero: true } }
-                }
-            });
-        }, 100);
+        if (window && typeof window.renderThuySanReport === 'function') {
+            window.renderThuySanReport(tabType, fromDate, toDate, wardCode);
+        } else {
+            console.warn('renderThuySanReport is not available on window');
+            // Fallback: dynamically load the script and then invoke
+            const existing = document.querySelector('script[data-dynamic="thuysanreport"]');
+            if (!existing) {
+                const s = document.createElement('script');
+                s.src = 'thuysanreport.js';
+                s.async = false;
+                s.setAttribute('data-dynamic', 'thuysanreport');
+                s.onload = function() {
+                    if (typeof window.renderThuySanReport === 'function') {
+                        window.renderThuySanReport(tabType, fromDate, toDate, wardCode);
+                    } else {
+                        console.warn('Failed to load thuysanreport.js or renderThuySanReport not found after load');
+                    }
+                };
+                s.onerror = function() {
+                    console.error('Unable to load thuysanreport.js');
+                };
+                document.body.appendChild(s);
+            }
+        }
     } else if (tabType === 'livestock') {
-        subContent.innerHTML = `
-        <div class="dashboard-cards-row">
-            <div class="dashboard-card livestock"><div class="card-title">Cơ sở nuôi lợn</div><div class="card-value">0</div></div>
-            <div class="dashboard-card livestock"><div class="card-title">Cơ sở nuôi bò</div><div class="card-value">4</div></div>
-            <div class="dashboard-card livestock"><div class="card-title">Cơ sở nuôi trâu</div><div class="card-value">2</div></div>
-            <div class="dashboard-card livestock"><div class="card-title">Cơ sở nuôi dê</div><div class="card-value">0</div></div>
-            <div class="dashboard-card livestock"><div class="card-title">Cơ sở nuôi gà</div><div class="card-value">0</div></div>
-            <div class="dashboard-card livestock"><div class="card-title">Cơ sở nuôi vịt</div><div class="card-value">2</div></div>
-        </div>
-        <div class="dashboard-charts-row" style="display:flex;gap:24px;">
-            <div style="flex:1;background:#fff;border-radius:12px;padding:18px;">
-                <canvas id="livestockChart1"></canvas>
-            </div>
-            <div style="flex:1;background:#fff;border-radius:12px;padding:18px;">
-                <canvas id="livestockChart2"></canvas>
-            </div>
-        </div>`;
-        setTimeout(() => {
-            new Chart(document.getElementById('livestockChart1').getContext('2d'), {
-                type: 'bar',
-                data: {
-                    labels: ['Nông hộ', 'Trang trại nhỏ', 'Trang trại vừa', 'Trang trại lớn'],
-                    datasets: [{
-                        label: 'Quy mô chăn nuôi',
-                        data: [3, 2, 3, 1],
-                        backgroundColor: '#42a5f5',
-                    }]
-                },
-                options: {
-                    plugins: {
-                        legend: { display: false },
-                        title: { display: true, text: 'Quy mô chăn nuôi', font: { size: 16 } }
-                    },
-                    scales: { y: { beginAtZero: true } }
-                }
-            });
-            new Chart(document.getElementById('livestockChart2').getContext('2d'), {
-                type: 'bar',
-                data: {
-                    labels: ['Thịt gia súc', 'Thịt gia cầm', 'Sản lượng trứng', 'Sản lượng sữa'],
-                    datasets: [{
-                        label: 'Sản lượng sản phẩm động vật',
-                        data: [5, 2, 3, 1],
-                        backgroundColor: '#66bb6a',
-                    }]
-                },
-                options: {
-                    plugins: {
-                        legend: { display: false },
-                        title: { display: true, text: 'Sản lượng sản phẩm động vật', font: { size: 16 } }
-                    },
-                    scales: { y: { beginAtZero: true } }
-                }
-            });
-        }, 100);
+        if (window && typeof window.renderChanNuoiReport === 'function') {
+            window.renderChanNuoiReport(tabType, fromDate, toDate, wardCode);
+        } else {
+            console.warn('renderChanNuoiReport is not available on window');
+            // Fallback: dynamically load the script and then invoke
+            const existing = document.querySelector('script[data-dynamic="channuoireport"]');
+            if (!existing) {
+                const s = document.createElement('script');
+                s.src = 'channuoireport.js';
+                s.async = false;
+                s.setAttribute('data-dynamic', 'channuoireport');
+                s.onload = function() {
+                    if (typeof window.renderChanNuoiReport === 'function') {
+                        window.renderChanNuoiReport(tabType, fromDate, toDate, wardCode);
+                    } else {
+                        console.warn('Failed to load channuoireport.js or renderChanNuoiReport not found after load');
+                    }
+                };
+                s.onerror = function() {
+                    console.error('Unable to load channuoireport.js');
+                };
+                document.body.appendChild(s);
+            }
+        }
+       
     } else if (tabType === 'quality') {
         let appendUrl = false;
         let url = QLCL_REPORT_API + '?';
